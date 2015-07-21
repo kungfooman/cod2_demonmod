@@ -1,0 +1,107 @@
+#include "ui_mp/menudef.h"
+#define WIDESCREEN_OFFSET			107 0
+
+{
+	menuDef 
+	{
+		name "connect"
+  		rect -128 0 896 480
+		fullScreen MENU_FALSE
+		visible MENU_FALSE
+		backcolor 1 1 1 1
+		style WINDOW_STYLE_SHADER
+ 		background "demon_background"
+	    focusColor GLOBAL_FOCUSED_COLOR
+
+		itemDef 
+		{
+			name			"text_logo_shadow"
+			style			WINDOW_STYLE_SHADER
+			rect			-110 8 256 60 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+			origin			WIDESCREEN_OFFSET
+			forecolor		1 1 1 1
+			background		"demon_text_logo_shadow"
+			visible			1	
+			decoration	
+		}
+		
+		itemDef 
+		{
+			name			"text_logo"
+			style			WINDOW_STYLE_SHADER
+			rect			-110 5 256 60 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+			origin			WIDESCREEN_OFFSET
+			forecolor		.8 .8 .8 1
+			background		"demon_text_logo"
+			visible			1	
+			decoration	
+		}
+
+		itemDef 
+		{
+			name			"loadbarbg"
+			style			WINDOW_STYLE_SHADER
+			rect			-144 -41 345 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
+			origin			WIDESCREEN_OFFSET
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1
+			bordercolor		1 1 1 .8
+			background		"black"
+			visible			1	
+			decoration	
+		}
+		
+		// load progress bar
+		itemDef 
+		{
+			name			"loadbar"
+			style			WINDOW_STYLE_LOADBAR
+			rect			-142 -39 342 10 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
+			origin			WIDESCREEN_OFFSET
+			forecolor		.7 .7 .7 .8
+			background		"loadingmap"
+			visible			1	
+			decoration	
+		}
+	
+		itemDef
+		{
+			
+			style			WINDOW_STYLE_SHADER
+			rect			160 90 550 320
+			background		"$levelBriefing"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1.5
+			bordercolor		1 1 1 1
+			visible			1
+		}
+
+		itemDef
+		{
+			name 			"soldier"
+			style			WINDOW_STYLE_SHADER
+			rect			-60 225 300 290	HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+			origin			WIDESCREEN_OFFSET
+			background		"connect_soldier"
+			forecolor		.8 .8 .8 1
+			visible			1
+			decoration
+		}
+
+		
+		itemDef
+		{
+			name 			"logo"
+			style			WINDOW_STYLE_SHADER
+			rect			35 5 70 60	HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+			origin			WIDESCREEN_OFFSET
+			background		"logo"
+			forecolor		.8 .8 .8 1
+			visible			1
+			decoration
+		}
+
+	}
+}

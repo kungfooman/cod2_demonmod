@@ -1,0 +1,116 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "F:\projects\mk\bin\StringEd\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           TRIPWIRE_DESC
+LANG_ENGLISH        "Tripwire activated grenades."
+
+REFERENCE           BETTY_DESC
+LANG_ENGLISH        "Proximity activated anti-personnel device."
+
+REFERENCE           STICKYBOMB_DESC
+LANG_ENGLISH        "Explosive device which sticks to walls."
+
+REFERENCE           SATCHEL_DESC
+LANG_ENGLISH        "Satchel bag filled with explosives. Can stick to walls."
+
+REFERENCE           TABUN_DESC
+LANG_ENGLISH        "Tabun nerve gas grenades which disorientate as well as kill."
+
+REFERENCE           ARTILLERY_DESC
+LANG_ENGLISH        "Call in Artillery barrage by sighting targets with binoculars."
+
+REFERENCE           BULLETDAMAGE_DESC
+LANG_ENGLISH        "Increased bullet damage."
+
+REFERENCE           BOMBSQUAD_DESC
+LANG_ENGLISH        "Ability to seek out enemy explosives."
+
+REFERENCE           ARMORVEST_DESC
+LANG_ENGLISH        "Increased health."
+
+REFERENCE           FIRSTAID_DESC
+LANG_ENGLISH        "Heal team mates when injured and drop health packs."
+
+REFERENCE           SCAVENGER_DESC
+LANG_ENGLISH        "Resupply weapons and inventory items with fresh ammo."
+
+REFERENCE           MARTYRDOM_DESC
+LANG_ENGLISH        "Drop a live grenade when killed."
+
+REFERENCE           ENDURANCE_DESC
+LANG_ENGLISH        "Sprint for longer distances."
+
+REFERENCE           SONIC_DESC
+LANG_ENGLISH        "Higher explosive weapon damage."
+
+REFERENCE           HARDLINE_DESC
+LANG_ENGLISH        "Get killstreaks 1 kill less than normal."
+
+REFERENCE           INSERTION_DESC
+LANG_ENGLISH        "Plant a marker defining where you will respawn."
+
+REFERENCE           NULL
+LANG_ENGLISH        "Perk Disabled"
+
+REFERENCE           HARDLINE
+LANG_ENGLISH        "Hardline"
+
+REFERENCE           TACTICAL_INSERTION
+LANG_ENGLISH        "Tactical Insertion"
+
+REFERENCE           TABUNGAS
+LANG_ENGLISH        "Tabun Gas"
+
+REFERENCE           STICKYBOMB
+LANG_ENGLISH        "Sticky Bombs"
+
+REFERENCE           SATCHELS
+LANG_ENGLISH        "Satchel Charges"
+
+REFERENCE           ARMORVEST
+LANG_ENGLISH        "Juggernaut"
+
+REFERENCE           ARTILLERY
+LANG_ENGLISH        "Artillery"
+
+REFERENCE           BULLETDAMAGE
+LANG_ENGLISH        "Stopping Power"
+
+REFERENCE           DETECTEXPLOSIVES
+LANG_ENGLISH        "Bomb Squad"
+
+REFERENCE           EXPLOSIVEDAMAGE
+LANG_ENGLISH        "Sonic Boom"
+
+REFERENCE           GRANADEPULLDEATH
+LANG_ENGLISH        "Martyrdom"
+
+REFERENCE           LONGERSPRINT
+LANG_ENGLISH        "Endurance"
+
+REFERENCE           SCAVENGER
+LANG_ENGLISH        "Scavenger"
+
+REFERENCE           WEAPON_BETTY
+LANG_ENGLISH        "Bouncing Betties"
+
+REFERENCE           TRIPWIRE
+LANG_ENGLISH        "Tripwires"
+
+REFERENCE           FIRSTAID
+LANG_ENGLISH        "First Aid"
+
+
+ENDMARKER

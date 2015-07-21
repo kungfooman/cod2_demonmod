@@ -1,0 +1,50 @@
+VERSION             "1"
+CONFIG              "F:\projects\mk\bin\StringEd\StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           BINOCULARS
+LANG_ENGLISH        "Binoculars"
+
+REFERENCE           HARDPOINT
+LANG_ENGLISH        "Spotting Glasses"
+
+REFERENCE           PTRS41
+LANG_ENGLISH        "Simonov PTRS-41"
+
+REFERENCE           FG42
+LANG_ENGLISH        "FG42"
+
+REFERENCE           MG42
+LANG_ENGLISH        "MG42"
+
+REFERENCE           30CAL
+LANG_ENGLISH        "30cal"
+
+REFERENCE           DP28
+LANG_ENGLISH        "DP28"
+
+REFERENCE           SPRINGFIELD_SCOPE
+LANG_ENGLISH        "Scoped Springfield"
+
+REFERENCE           KNIFE
+LANG_ENGLISH        "Ka-bar Knife"
+
+REFERENCE           WEBLEY_DESC
+LANG_ENGLISH        ""
+
+REFERENCE           COLT_DESC
+LANG_ENGLISH        ""
+
+REFERENCE           TOKAREV_DESC
+LANG_ENGLISH        ""
+
+REFERENCE           WALTHAR_DESC
+LANG_ENGLISH        ""
+
+REFERENCE           MAGNUM_DESC
+LANG_ENGLISH        ""
+
+REFERENCE           KNIFE_DESC
+LANG_ENGLISH        ""
+
+ENDMARKER

@@ -1,0 +1,50 @@
+// Black bars
+	itemDef 
+	{
+		style			WINDOW_STYLE_SHADER
+		rect			-128 0 896 65
+		forecolor		0.373 0.373 0.373 1
+		backcolor		0 0 0 1
+		background  	"boarder"
+		visible			1
+		decoration
+	}
+	itemDef 
+	{
+		style			WINDOW_STYLE_SHADER
+		rect			-128 416 896 64
+		forecolor		0.373 0.373 0.373 1
+		backcolor		0 0 0 1
+		background  	"boarder"
+		visible			1
+		decoration
+	}
+
+// Lines
+	itemDef 
+	{
+		style			WINDOW_STYLE_FILLED
+		rect			-128 64 896 1
+		backcolor		1.000 0.647 0.290 1
+		visible			1
+		decoration
+	}
+	itemDef 
+	{
+		style			WINDOW_STYLE_FILLED
+		rect			-128 416 896 1
+		backcolor		1.000 0.647 0.290 1
+		visible			1
+		decoration
+	}
+
+// Logo
+	itemDef
+	{
+		name			"logo"
+		decoration
+		visible 		1
+		rect			543 0 62 62 
+		style       	WINDOW_STYLE_SHADER
+		background  	"logo"
+	}

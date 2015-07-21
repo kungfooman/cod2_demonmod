@@ -1,0 +1,782 @@
+#include "ui/menudef.h"
+
+#define ORIGIN				40 208
+#define ORIGIN2				190 225
+
+#define ORIGIN_SIDEARMINFO 	70 215
+#define ORIGIN_SIDEARMICON 	310 225
+#define ORIGIN_BIG_TEXT		194 231
+#define ORIGIN_DESC_TEXT	194 255
+#define DESC_RECT			0 52 250 50
+
+{
+	menuDef
+	{
+		name			"popup_sidearm"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+ 		style			WINDOW_STYLE_EMPTY
+		onEsc 
+		{
+			close popup_sidearm;
+		}
+		onOpen 
+		{
+			
+			show default_text;
+			show default_big_text;
+			show default_icon;
+			show default_desc_text;
+
+		}
+		onClose
+		{
+			hide magnum_text;
+			hide magnum_big_text;
+			hide magnum_icon;
+			hide magnum_desc_text;
+			hide knife_text;
+			hide knife_big_text;
+			hide knife_icon;
+			hide knife_desc_text;
+			hide default_text;
+			hide default_big_text;
+			hide default_icon;
+			hide default_desc_text;
+		}
+		
+		itemDef
+		{
+			name			"sidearm_background"
+			visible			1
+			rect			0 0 410 200
+			origin			ORIGIN
+			style			WINDOW_STYLE_SHADER
+			background		"black"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1
+			bordercolor		1.000 0.647 0.290 1
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"sidearm_gradient"
+			visible			1
+			rect			0 0 240 80
+			origin			ORIGIN2
+			style			WINDOW_STYLE_SHADER
+			background		"menu_gradient"
+			forecolor		.7 .7 .7 .7
+			visible			1
+			decoration
+		}
+
+	/////////////////// BUTTONS //////////////////////////////
+
+		itemDef 
+		{
+			name			"default"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Colt .45 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_player_team"
+			showDvar		{ "american" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "colt";
+				
+				setDvar ui_sidearm_colt "1";
+				setDvar ui_sidearm_webley "0";
+				setDvar ui_sidearm_tokarev "0";
+				setDvar ui_sidearm_walthar "0";
+				setDvar ui_sidearm_magnum "0";
+				setDvar ui_sidearm_knife "0";
+				
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide magnum_text;
+				hide magnum_big_text;
+				hide magnum_icon;
+				hide magnum_desc_text;
+				hide knife_text;
+				hide knife_big_text;
+				hide knife_icon;
+				hide knife_desc_text;
+				
+				play "mouse_over";
+				
+				show default_text;
+				show default_big_text;
+				show default_icon;
+				show default_desc_text;
+				
+			}
+		}
+	
+		itemDef 
+		{
+			name			"default"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Webley .455 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_player_team"
+			showDvar		{ "british" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "webley";
+
+				setDvar ui_sidearm_colt "0";
+				setDvar ui_sidearm_webley "1";
+				setDvar ui_sidearm_tokarev "0";
+				setDvar ui_sidearm_walthar "0";
+				setDvar ui_sidearm_magnum "0";
+				setDvar ui_sidearm_knife "0";
+
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide magnum_text;
+				hide magnum_big_text;
+				hide magnum_icon;
+				hide magnum_desc_text;
+				hide knife_text;
+				hide knife_big_text;
+				hide knife_icon;
+				hide knife_desc_text;
+				
+				play "mouse_over";
+				
+				show default_text;
+				show default_big_text;
+				show default_icon;
+				show default_desc_text;
+				
+			}
+		}
+
+		itemDef 
+		{
+			name			"default"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. TT-30 Tokarev Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_player_team"
+			showDvar		{ "russian" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "tokarev";
+
+				setDvar ui_sidearm_colt "0";
+				setDvar ui_sidearm_webley "0";
+				setDvar ui_sidearm_tokarev "1";
+				setDvar ui_sidearm_walthar "0";
+				setDvar ui_sidearm_magnum "0";
+				setDvar ui_sidearm_knife "0";
+				
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide magnum_text;
+				hide magnum_big_text;
+				hide magnum_icon;
+				hide magnum_desc_text;
+				hide knife_text;
+				hide knife_big_text;
+				hide knife_icon;
+				hide knife_desc_text;
+				
+				play "mouse_over";
+				
+				show default_text;
+				show default_big_text;
+				show default_icon;
+				show default_desc_text;
+				
+			}
+		}
+
+		itemDef 
+		{
+			name			"default"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Luger P.08 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_player_team"
+			showDvar		{ "german" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "luger";
+				
+				setDvar ui_sidearm_colt "0";
+				setDvar ui_sidearm_webley "0";
+				setDvar ui_sidearm_tokarev "0";
+				setDvar ui_sidearm_walthar "1";
+				setDvar ui_sidearm_magnum "0";
+				setDvar ui_sidearm_knife "0";
+				
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide magnum_text;
+				hide magnum_big_text;
+				hide magnum_icon;
+				hide magnum_desc_text;
+				hide knife_text;
+				hide knife_big_text;
+				hide knife_icon;
+				hide knife_desc_text;
+				
+				play "mouse_over";
+				
+				show default_text;
+				show default_big_text;
+				show default_icon;
+				show default_desc_text;
+				
+			}
+		}
+
+		itemDef 
+		{
+			name			"magnum"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Magnum .357 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "magnum";
+
+				setDvar ui_sidearm_colt "0";
+				setDvar ui_sidearm_webley "0";
+				setDvar ui_sidearm_tokarev "0";
+				setDvar ui_sidearm_walthar "0";
+				setDvar ui_sidearm_magnum "1";
+				setDvar ui_sidearm_knife "0";
+
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide default_text;
+				hide default_big_text;
+				hide default_icon;
+				hide default_desc_text;
+				hide knife_text;
+				hide knife_big_text;
+				hide knife_icon;
+				hide knife_desc_text;	
+				
+				play "mouse_over";
+				
+				show magnum_text;
+				show magnum_big_text;
+				show magnum_icon;
+				show magnum_desc_text;
+				
+			} 
+		}
+
+		itemDef 
+		{
+			name			"knife"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Ka-Bar Combat Knife"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "knife";
+
+				setDvar ui_sidearm_colt "0";
+				setDvar ui_sidearm_webley "0";
+				setDvar ui_sidearm_tokarev "0";
+				setDvar ui_sidearm_walthar "0";
+				setDvar ui_sidearm_magnum "0";
+				setDvar ui_sidearm_knife "1";
+				
+				close popup_sidearm;
+			}
+			onFocus
+			{
+				hide default_text;
+				hide default_big_text;
+				hide default_icon;
+				hide default_desc_text;
+				hide magnum_text;
+				hide magnum_big_text;
+				hide magnum_icon;
+				hide magnum_desc_text;	
+				
+				play "mouse_over";
+				
+				show knife_text;
+				show knife_big_text;
+				show knife_icon;
+				show knife_desc_text;
+				
+			} 
+		}
+
+//////////////////// TEXT ///////////////////////////////////
+
+		itemDef 
+		{
+			name			"default_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Webley .455 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "british" }
+		}
+
+		itemDef 
+		{
+			name			"default_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Colt .45 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "american" }
+		}
+
+		itemDef 
+		{
+			name			"default_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. TT-30 Tokarev Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "russian" }
+		}
+
+		itemDef 
+		{
+			name			"default_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Luger P.08 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "german" }
+		}
+
+		itemDef 
+		{
+			name			"magnum_text"
+			visible			0
+			rect			0 26 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@2. Magnum .357 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"knife_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_SIDEARMINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@3. Ka-Bar Combat Knife"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+		
+		////////////////// BIG TEXT ///////////////////////////////
+
+		itemDef 
+		{
+			name			"default_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Colt .45 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "american" }
+		}
+
+		itemDef 
+		{
+			name			"default_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Webley .455 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "british" }
+		}
+
+		itemDef 
+		{
+			name			"default_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Luger P.08 Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "german" }
+		}
+
+		itemDef 
+		{
+			name			"default_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@TT-30 Tokarev Pistol"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "russian" }
+		}
+
+		itemDef 
+		{
+			name			"magnum_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Magnum .357 Revolver"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"knife_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Ka-Bar Combat Knife"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		///////////////// IMAGES ////////////////////////////////
+
+		itemDef
+		{
+			name			"default_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 80 80
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_colt45"
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "american" }
+		}
+		
+		itemDef
+		{
+			name			"default_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 80 80
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_webley"
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "british" }
+		}
+
+		itemDef
+		{
+			name			"default_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 80 80
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_tokarev"
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "russian" }
+		}
+
+		itemDef
+		{
+			name			"default_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 80 80
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_walther"
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "german" }
+		}
+
+		itemDef
+		{
+			name			"magnum_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 90 90
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_magnum"
+			decoration
+		}
+	
+		itemDef
+		{
+			name			"knife_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 90 90
+			origin			ORIGIN_SIDEARMICON
+			background		"weapon_knife"
+			decoration
+		}
+
+		//////////////////////// DESCRIPTIONS ////////////////////////////////////
+	
+		itemDef 
+		{
+			name			"default_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_COLT_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "american" }
+		}
+
+		itemDef 
+		{
+			name			"default_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_WALTHAR_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "german" }
+		}
+
+		itemDef 
+		{
+			name			"default_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_TOKAREV_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "russian" }
+		}
+
+		itemDef 
+		{
+			name			"default_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_WEBLEY_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+			dvartest		"ui_player_team"
+			showDvar		{ "british" }
+		}
+
+		itemDef 
+		{
+			name			"magnum_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_MAGNUM_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"knife_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@MYWEAPONS_KNIFE_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+	}
+}

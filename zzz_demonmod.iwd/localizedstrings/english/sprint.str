@@ -1,0 +1,14 @@
+
+REFERENCE           SPRINTING
+LANG_ENGLISH        "Sprinting"
+
+REFERENCE           HOLD_ACTIVATE
+LANG_ENGLISH        "[{+activate}] to Sprint:"
+
+REFERENCE           HEAVY_FLAG
+LANG_ENGLISH        "Flag Too Heavy to Sprint With"
+
+
+ENDMARKER
+
+

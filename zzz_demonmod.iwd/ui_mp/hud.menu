@@ -1,0 +1,575 @@
+/**/
+#include "ui_mp/menudef.h"
+
+#define WEAPON_TEXTSCALE .3
+
+{
+	assetGlobalDef
+	{
+		fadeClamp 1.0					// sets the fadeup alpha
+		fadeCycle 1						// how often fade happens in milliseconds
+		fadeAmount 0.1					// amount to adjust alpha per cycle
+
+		shadowX  5						// x amount for shadow offset
+		shadowY  5						// y amount for shadow offset
+		shadowColor 0.1 0.1 0.1 0.25	// shadow color
+	}
+	
+	// Mantle Hint
+	menuDef 
+	{
+    	name "MantleHint"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+      	rect 0 130 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+
+		itemDef 
+		{
+			name "chRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 40 40
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw CG_MANTLE_HINT
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+	
+	//	CURSOR HINTS
+	menuDef 
+	{
+    	name "Cursorhints"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+      	rect 0 70 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+
+		itemDef 
+		{
+			name "chRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 40 40 // 64x64
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw CG_CURSORHINT
+		}
+	}
+
+	// CLASS INSIGNIA
+	menuDef
+	{
+		name 			"class insignia"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			65 420 640 40
+		
+		itemDef
+		{
+			name 			"assault"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"assault_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_assault"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name 			"engineer"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"engineer_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_engineer"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name 			"gunner"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"gunner_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_gunner"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name 			"sniper"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"sniper_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_sniper"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name 			"medic"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"medic_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_medic"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name 			"officer_american"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"officer_allied_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_officer"
+			showDvar		{ "american" }
+		}
+		itemDef
+		{
+			name 			"officer_british"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"british_officer_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_officer"
+			showDvar		{ "british" }
+		}
+		itemDef
+		{
+			name 			"officer_russian"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"russian_officer_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_officer"
+			showDvar		{ "russian" }
+		}
+		itemDef
+		{
+			name 			"officer_german"
+			rect 			7 7 35 35
+			forecolor		.9 .9 .9 .9
+			background 		"officer_axis_insignia"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"ui_player_class_officer"
+			showDvar		{ "german" }
+		}
+	}
+
+	//	STANCE
+	menuDef 
+	{
+    	name "stance"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+		rect 95 -50 40 40 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+
+		itemDef 
+		{
+			name "chRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 50 50 // 64x64
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw CG_PLAYER_STANCE
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+	
+	// WEAPON INFO
+	menuDef
+	{
+		name "weaponinfo"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		//rect 0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+		rect 60 408.375 640 40
+
+		// weapon ammo counter back
+		itemDef
+		{
+			name "ammocounterback"
+			//rect -100 -75 100 50
+			rect 557.5 12 80 40
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@ammocounterback.tga"
+			ownerdraw CG_PLAYER_AMMO_BACKDROP
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// weapon name
+		itemDef
+		{
+			name "weapname"
+			//rect -385 -40 290 40
+			rect 242.5 37.65 320 30
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textscale WEAPON_TEXTSCALE
+			//textscale .4
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_WEAPON_NAME
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// ammo text
+		itemDef 
+		{
+ 			name "ammotex"
+			//rect -85 -40 70 40
+			rect 570 38.5 55 40
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textscale .325
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_AMMO_VALUE
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+
+	// HEALTH BAR
+	menuDef
+	{
+		name "Health"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		rect 45 448 640 40
+		itemDef
+		{
+			name "healthbarback"
+			rect 557.5 12 90 7
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@health_back.tga"
+			ownerdraw CG_PLAYER_BAR_HEALTH_BACK
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		itemDef
+		{
+			name "healthbar"
+			rect 558.5 13 88 5
+			forecolor 0.7 0.4 0.0 1.0
+			background "gfx/hud/hud@health_bar.tga"
+			ownerdraw CG_PLAYER_BAR_HEALTH
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		itemDef
+		{
+			name "healthbarcross"
+			rect 545 11 10 10
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@health_cross.tga"
+			ownerdraw CG_PLAYER_BAR_HEALTH_BACK
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+	
+	// LOW HEALTH OVERLAY
+	menuDef
+	{
+		name "Low Health"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		rect 0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+		
+		itemDef
+		{
+			name "healthoverlay"
+			rect 0 0 640 480
+			forecolor 1.0 1.0 1.0 1.0
+			background "overlay_low_health"
+			ownerdraw CG_PLAYER_LOW_HEALTH_OVERLAY
+			visible MENU_TRUE
+			decoration
+		}
+	}
+
+	//	COMPASS rect -10 -125 
+	menuDef
+	{
+		name "Compass"
+ 	   	fullScreen MENU_FALSE
+ 	   	visible MENU_TRUE
+ 	   	rect -10 -115 COMPASS_SIZE COMPASS_SIZE HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_BOTTOM
+
+		itemDef
+ 	   	{
+			name "compassback"
+			rect 0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@compassback.tga"
+			ownerdraw CG_PLAYER_COMPASS_BACK
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+ 	   	}
+		itemDef
+		{
+			name "compasshighlight"
+			rect 0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@compasshighlight.tga"
+			ownerdraw CG_PLAYER_COMPASS_BACK
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		itemDef
+		{
+			name "compassface"
+			rect 0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@compassface.tga"
+			ownerdraw CG_PLAYER_COMPASS
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+    	itemDef // Objective pointers
+    	{
+			name "compasspointers"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_COMPASS_POINTERS
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+    	}
+		itemDef // Friendlies pointers
+		{
+			name "compassfriendlies"
+			visible MENU_TRUE
+			rect 0 0 COMPASS_SIZE COMPASS_SIZE
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_COMPASS_FRIENDS
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+	
+
+	// OFFHAND WEAPONS
+	menuDef
+	{
+		name "offhandinfo"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		rect 0 0 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+		
+		// offhand frag icon 
+		itemDef
+		{
+			name "offhandfragicon"
+			//rect -70 -124 20 20
+			rect -42 -75 20 20 
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_OFFHAND_WEAPON_ICON_FRAG
+			visible MENU_TRUE
+			background "gfx/icons/hud@russian_grenade.tga" // default texture
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// offhand frag ammo
+		itemDef
+		{
+			name "offhandfragammo"
+			//rect -83 -95 25 25
+			rect -20 -58 20 20 
+			textscale .25
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textfont UI_FONT_DEFAULT
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_OFFHAND_WEAPON_AMMO_FRAG
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// offhand frag name
+		itemDef
+		{
+			name "offhandfragname"
+			rect -58 -65 30 25
+			textscale .3
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textfont UI_FONT_DEFAULT
+			forecolor 1.0 1.0 1.0 1.0
+			//ownerdraw CG_OFFHAND_WEAPON_NAME_FRAG
+			visible MENU_TRUE
+			decoration
+		}
+		
+		// offhand smoke icon
+		itemDef
+		{
+			name "offhandsmokeicon"
+			//rect -70 -114 20 20
+			rect -42 -100 20 20 
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_OFFHAND_WEAPON_ICON_SMOKE
+			background "hud_us_smokegrenade" // default texture
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// offhand smoke ammo
+		itemDef
+		{
+			name "offhandsmokeammo"
+			//rect -83 -135 25 25
+			rect -20 -82 20 20 
+			textscale .25
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textfont UI_FONT_DEFAULT
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_OFFHAND_WEAPON_AMMO_SMOKE
+			visible MENU_TRUE
+			decoration
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+		
+		// offhand smoke name
+		itemDef
+		{
+			name "offhandsmokename"
+			rect -60 -105 30 25
+			textscale .3
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textfont UI_FONT_DEFAULT
+			forecolor 1.0 1.0 1.0 1.0
+		//	ownerdraw CG_OFFHAND_WEAPON_NAME_SMOKE
+			visible MENU_TRUE
+			decoration
+			
+		}
+		
+	}
+			
+	//	Local Talking Status
+	menuDef 
+	{
+    		name "amitalking"
+    		fullScreen MENU_FALSE
+    		visible MENU_TRUE
+		rect 100 5 24 24 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+
+		itemDef 
+		{
+			name "talkingRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 24 24 
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw UI_AMITALKING
+			dvartest  "scr_demon_hardcore"
+			showDvar  { "0" }
+		}
+	}
+
+	// Remote Talking Status
+	menuDef 
+	{
+    		name "talkers"
+    		fullScreen MENU_FALSE
+    		visible MENU_TRUE
+		rect 60 30 16 16 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+
+		itemDef 
+		{
+			name "talker1Rect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 16 16
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw UI_TALKER1
+		}
+
+		itemDef 
+		{
+			name "talker2Rect"
+			decoration
+			visible MENU_TRUE
+			rect 0 16 16 16
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw UI_TALKER2
+		}
+
+		itemDef 
+		{
+			name "talker3Rect"
+			decoration
+			visible MENU_TRUE
+			rect 0 32 16 16
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw UI_TALKER3
+		}
+
+		itemDef 
+		{
+			name "talker4Rect"
+			decoration
+			visible MENU_TRUE
+			rect 0 48 16 16
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			ownerdraw UI_TALKER4
+		}
+	}
+}

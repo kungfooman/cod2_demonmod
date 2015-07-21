@@ -1,0 +1,61 @@
+REFERENCE           	TEST
+LANG_ENGLISH        	"Kills:  "
+
+REFERENCE		  FIXMAPROT_LIMITING
+LANG_ENGLISH	  "Fixmaprotation: ^1Limiting sv_maprotation to avoid server crash!"
+
+REFERENCE           	KILL_CONF
+LANG_ENGLISH        	"Kill Confirmed"
+
+REFERENCE           	KILL_DENIED
+LANG_ENGLISH        	"^1Kill Denied"
+
+REFERENCE 			ZOOM_HINT
+LANG_ENGLISH 		"^3Press [{+activate}] to Zoom In; [{+melee}] To Zoom Out"
+
+REFERENCE           	PRO_ACTIVE
+LANG_ENGLISH        	"PAINKILLER ENABLED"
+
+REFERENCE           	DISABLED_WEAPON
+LANG_ENGLISH        	"Weapons Disabled While Painkiller Active"
+
+REFERENCE		    BLANK_LINE_TXT
+LANG_ENGLISH	    " "
+
+REFERENCE           CLASS_GUNNER
+LANG_ENGLISH        "[Machine Gunner]"
+
+REFERENCE           CLASS_ASSAULT
+LANG_ENGLISH        "[Assault]"
+
+REFERENCE           CLASS_ENGINEER
+LANG_ENGLISH        "[Engineer]"
+
+REFERENCE           CLASS_SNIPER
+LANG_ENGLISH        "[Sniper]"
+
+REFERENCE           CLASS_MEDIC
+LANG_ENGLISH        "[Medic]"
+
+REFERENCE           CLASS_OFFICER
+LANG_ENGLISH        "[Officer]"
+
+REFERENCE           CLASS_ALLIES
+LANG_ENGLISH        "Choose Allied Class"
+
+REFERENCE           CLASS_AXIS
+LANG_ENGLISH        "Choose Axis Class"
+
+REFERENCE           CLASS_CHANGED
+LANG_ENGLISH        "You will respawn as a &&1 class"
+
+REFERENCE           VICTORY_ALLIES
+LANG_ENGLISH        "ALLIES WIN!"
+
+REFERENCE           VICTORY_AXIS
+LANG_ENGLISH        "AXIS WIN!"
+
+REFERENCE           VICTORY_DRAW
+LANG_ENGLISH        "MATCH IS A DRAW!"
+
+ENDMARKER

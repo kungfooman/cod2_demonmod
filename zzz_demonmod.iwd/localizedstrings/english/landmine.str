@@ -1,0 +1,26 @@
+
+REFERENCE           MAX_TEAM
+LANG_ENGLISH        "Sorry, the maximum number of landmines for your team has been reached."
+
+REFERENCE           MAX
+LANG_ENGLISH        "Sorry, the maximum number of landmines has been reached."
+
+REFERENCE           WARNING
+LANG_ENGLISH        "^1WARNING! ^7Landmine!"
+
+REFERENCE           ACTIVATES
+LANG_ENGLISH        "Landmine activates in ^15 ^7seconds!"
+
+REFERENCE           PICKUP
+LANG_ENGLISH        "^7Hold USE ([{+activate}]) to defuse"
+
+REFERENCE           PLACE
+LANG_ENGLISH        "^7Hold USE ([{+activate}]) to plant"
+
+REFERENCE           PICKING_UP
+LANG_ENGLISH        "^7Defusing..."
+ 
+REFERENCE           PLACING
+LANG_ENGLISH        "^7Planting..."
+ 
+ENDMARKER 

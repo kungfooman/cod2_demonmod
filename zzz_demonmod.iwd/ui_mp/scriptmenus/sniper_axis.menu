@@ -1,0 +1,253 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE				48 64
+#define ORIGIN_CHOICE1				80 84
+
+{
+	menuDef
+	{
+		name			"sniper_axis"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close sniper_axis;
+		}
+		onOpen 
+		{
+			show kar98ksniper_info;
+			show weapon_propertiestext;
+			
+			show frag;
+			show smoke;
+		}
+		onClose
+		{
+			hide kar98ksniper_info;
+			
+			hide frag;
+			hide smoke;
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+
+		#include "ui/bars.menu"
+		
+		#include "ui_mp/custom/teamicon_german.inc"
+		#include "ui_mp/custom/menu_wireframe.inc"
+		#include "ui_mp/custom/perks_sniper.inc"
+		#include "ui_mp/custom/sidearm.inc"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@Sniper Class"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+
+// MENU CHOICES
+		execKey "1" { play "mouse_click"; scriptMenuResponse "kar98k_sniper_mp"; }
+
+		itemDef 
+		{
+			name			"button_kar98ksniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Scoped Karbiner 98k"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98ksniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "kar98k_sniper_mp";
+			}
+			onFocus
+			{
+				play "mouse_over";
+				show kar98ksniper_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_kar98k_sniper_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Scoped Karbiner 98k"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98ksniper"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide kar98ksniper_info;
+				hide weapon_propertiestext;
+				hide frag;
+				hide smoke;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+			}
+		}
+
+		//BACK BUTTON
+		itemDef 
+		{
+			#include "ui_mp/button_back.menu"
+
+			action
+			{
+				play "mouse_click";
+				close sniper_axis;
+				close assault_axis;
+				close engineer_axis;
+				close medic_axis;
+				close officer_axis;
+				open class_axis;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close ingame;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+// WEAPON IMAGES
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 -2 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_kar98scoped"
+			decoration
+		}
+
+// WEAPON PROPERTIES
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			origin			ORIGIN_WEAPONPROPERTIESTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_ACCURACY_DAMAGE_MOBILITY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+
+
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98ksniper_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		#include "ui_mp/custom/axis_special_grenades.inc"
+	}
+}

@@ -1,0 +1,549 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE				48 64
+#define ORIGIN_CHOICE1				80 84
+#define ORIGIN_CHOICE2				80 108
+#define ORIGIN_CHOICE3				80 132
+#define ORIGIN_CHOICE4				80 156
+#define ORIGIN_CHOICE5				80 180
+#define ORIGIN_CHOICE6				80 204
+
+{
+	menuDef
+	{
+		name			"class_allies"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close class_allies;
+		}
+		onOpen 
+		{
+		//	setdvar ui_show_message "0";
+			show assault_count;
+			show assault_insignia;
+		}
+		onClose
+		{
+			hide engineer_count;
+			hide gunner_count;
+			hide sniper_count;
+			hide medic_count;
+			hide officer_count;
+			hide assault_count;
+
+			hide assault_insignia;
+			hide engineer_insignia;
+			hide gunner_insignia;
+			hide sniper_insignia;
+			hide medic_insignia;
+			hide officer_allied_insignia;
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+
+		#include "ui/bars.menu"
+		
+		#include "ui_mp/custom/team_counter_allies.inc"
+		#include "ui_mp/custom/insignia.inc"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@DEMON_CLASS_ALLIES"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+
+// MENU CHOICES
+
+		itemDef 
+		{
+			name			"button_assault"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Assault"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_assault"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "assault";
+			}
+			onFocus
+			{
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				play "mouse_over";
+
+				show assault_count;
+				show assault_insignia;
+			}
+		}
+		itemDef 
+		{
+			name			"assault_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Assault"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_assault"
+			showDvar		{ "0" }
+			decoration
+			mouseEnter
+			{
+				hide assault_count;
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+			
+				show assault_count_full;
+			}
+			mouseExit
+			{
+				hide assault_count_full;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_engineer"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Engineer"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_engineer"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "engineer";
+			}
+			onFocus
+			{
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+				hide assault_count;
+	
+				hide assault_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				play "mouse_over";
+				
+				show engineer_count;
+				show engineer_insignia;
+			}
+		}
+		itemDef 
+		{
+			name			"engineer_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Engineer"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_engineer"
+			showDvar		{ "0" }
+			decoration
+			mouseEnter
+			{
+				hide assault_count;
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				show engineer_count_full;
+			}
+			mouseExit
+			{
+				hide engineer_count_full;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_gunner"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Machine Gunner"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_gunner"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "gunner";
+			}
+			onFocus
+			{
+				hide engineer_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+				hide assault_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				play "mouse_over";
+				
+				show gunner_count;
+				show gunner_insignia;
+			}
+		}
+		itemDef 
+		{
+			name			"gunner_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Machine Gunner"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_gunner"
+			showDvar		{ "0" }
+			decoration
+			mouseEnter
+			{
+				hide assault_count;
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+
+				show gunner_count_full;
+			}
+			mouseExit
+			{
+				hide gunner_count_full;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_sniper"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@4. Sniper"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_sniper"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "sniper";
+			}
+			onFocus
+			{
+				hide engineer_count;
+				hide gunner_count;
+				hide medic_count;
+				hide officer_count;
+				hide assault_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				play "mouse_over";
+				show sniper_count;
+				show sniper_insignia;
+			}
+		}
+		itemDef 
+		{
+			name			"sniper_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE4
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@4. Sniper"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_sniper"
+			showDvar		{ "0" }
+			decoration
+			mouseEnter
+			{
+				hide assault_count;
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+
+				show sniper_count_full;
+			}
+			mouseExit
+			{
+				hide sniper_count_full;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_medic"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE5
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@5. Medic"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_medic"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "medic";
+			}
+			onFocus
+			{
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide officer_count;
+				hide assault_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide officer_allied_insignia;
+				
+				play "mouse_over";
+				
+				show medic_count;
+				show medic_insignia;
+			}
+		}
+		itemDef 
+		{
+			name			"medic_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE5
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@5. Medic"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_allies_medic"
+			showDvar		{ "0" }
+			decoration
+			mouseEnter
+			{
+				hide assault_count;
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide officer_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				hide officer_allied_insignia;
+				
+				show medic_count_full;
+			}
+			mouseExit
+			{
+				hide medic_count_full;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_officer"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE6
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@6. Officer"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_officer"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "officer";
+			}
+			onFocus
+			{
+				hide engineer_count;
+				hide gunner_count;
+				hide sniper_count;
+				hide medic_count;
+				hide assault_count;
+
+				hide assault_insignia;
+				hide engineer_insignia;
+				hide gunner_insignia;
+				hide sniper_insignia;
+				hide medic_insignia;
+				
+				play "mouse_over";
+				show officer_allied_insignia;
+			}
+		}
+		
+		//BACK BUTTON
+		itemDef 
+		{
+			#include "ui_mp/button_back.menu"
+
+			action
+			{
+				play "mouse_click";
+				close class_allies;
+				open team_americangerman;
+				open team_britishgerman;
+				open team_russiangerman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close class_allies;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+}

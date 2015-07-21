@@ -1,0 +1,554 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE			48 64
+#define ORIGIN_CHOICE1			80 84
+#define ORIGIN_CHOICE2			80 112
+#define ORIGIN_CHOICE3			80 140
+
+{
+	menuDef
+	{
+		name			"assault_american"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close assault_american;
+		}
+		onOpen 
+		{
+			show greasegun_info;
+			show weapon_propertiestext;
+			show tabungas;
+			show tabungas_replace;
+			show frag;
+		}
+		onClose
+		{
+			hide greasegun_info;
+			hide thompson_info;
+			hide shotgun_info;
+			hide frag;
+			hide tabungas;
+			hide tabungas_replace;
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+
+		#include "ui/bars.menu"
+		
+		#include "ui_mp/custom/teamicon_allies.inc"
+		#include "ui_mp/custom/menu_wireframe.inc"
+		#include "ui_mp/custom/perks_assault.inc"
+		#include "ui_mp/custom/sidearm.inc"
+		#include "ui_mp/custom/allied_special_grenades.inc"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@Assault Class"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+
+// MENU CHOICES
+		execKey "1" { play "mouse_click"; scriptMenuResponse "greasegun_mp"; }
+		execKey "2" { play "mouse_click"; scriptMenuResponse "thompson_mp"; }
+		execKey "3" { play "mouse_click"; scriptMenuResponse "shotgun_mp"; }
+		
+		itemDef 
+		{
+			name			"button_greasegun"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_1_GREASEGUN"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_greasegun"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "greasegun_mp";
+			}
+			onFocus
+			{
+				hide thompson_info;
+				hide shotgun_info;
+				play "mouse_over";
+				show greasegun_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_greasegun_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@MPUI_1_GREASEGUN"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_greasegun"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide thompson_info;
+				hide shotgun_info;
+				hide greasegun_info;
+				hide weapon_propertiestext;
+				hide frag;
+				hide tabungas;
+				hide tabungas_replace;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+				show frag;
+				show tabungas;
+				show tabungas_replace;
+			}
+		}
+	
+		itemDef 
+		{
+			name			"button_thompson"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Thompson"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_thompson"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "thompson_mp";
+			}
+			onFocus
+			{
+				hide greasegun_info;
+				hide shotgun_info;
+				play "mouse_over";
+				show thompson_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_thompson_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Thompson"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_thompson"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide thompson_info;
+				hide shotgun_info;
+				hide greasegun_info;
+				hide frag;
+				hide tabungas;
+				hide tabungas_replace;
+				hide weapon_propertiestext;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+				show frag;
+				show tabungas;
+				show tabungas_replace;
+			}
+		}
+	
+		itemDef 
+		{
+			name			"button_shotgun"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. M1897 Trench Gun"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_shotgun"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "shotgun_mp";
+			}
+			onFocus
+			{
+
+				hide greasegun_info;
+				hide thompson_info;
+				play "mouse_over";
+				show shotgun_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_shotgun_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. M1897 Trench Gun"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_shotgun"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide thompson_info;
+				hide shotgun_info;
+				hide greasegun_info;
+				hide weapon_propertiestext;
+				hide frag;
+				hide tabungas;
+				hide tabungas_replace;
+				
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+				show frag;
+				show tabungas;
+				show tabungas_replace;
+			}
+		}
+
+		//BACK BUTTON
+		itemDef 
+		{
+			#include "ui_mp/button_back.menu"
+
+			action
+			{
+				play "mouse_click";
+				close medic_american;
+				close gunner_american;
+				close assault_american;
+				close engineer_american;
+				close officer_american;
+				close sniper_american;
+				
+				open class_allies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close assault_american;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+	
+	//*****************************************************
+	//****************** WEAPON IMAGES ********************
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			WEAPONIMAGE_SIZE
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_thompson"
+			decoration
+		}
+
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			WEAPONIMAGE_SIZE
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_greasegun"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_shotgun"
+			decoration
+		}
+
+
+	//***************************************************************
+	//***************** WEAPON PROPERTIES ***************************
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			origin			ORIGIN_WEAPONPROPERTIESTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_ACCURACY_DAMAGE_MOBILITY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+		
+		//******************** THOMPSON *****************************
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 56 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 83 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			0 0 96 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		
+		//********************* GREASEGUN ****************************
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 70 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 75 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"greasegun_info"
+			visible 		0
+			rect			0 0 96 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		
+		//****************** SHOTGUN *******************************
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 35 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 100 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		
+	}
+}

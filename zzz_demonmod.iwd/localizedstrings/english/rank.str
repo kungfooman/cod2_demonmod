@@ -1,0 +1,8 @@
+
+REFERENCE           PROMOTION
+LANG_ENGLISH        "^3You Have Been Promoted!"
+
+REFERENCE           DEMOTION
+LANG_ENGLISH        "^1Sorry! You Have Been Demoted!"
+
+ENDMARKER

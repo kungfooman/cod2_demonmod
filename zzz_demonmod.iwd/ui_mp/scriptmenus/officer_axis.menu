@@ -1,0 +1,533 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE			48 64
+#define ORIGIN_CHOICE1			80 84
+#define ORIGIN_CHOICE2			80 112
+#define ORIGIN_CHOICE3			80 140
+
+#define ORIGIN_BINOCULARS		425 225
+
+{
+	menuDef
+	{
+		name			"officer_axis"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		5.0
+		onEsc 
+		{
+			close officer_axis;
+		}
+		onOpen 
+		{
+			show kar98k_info;
+			show weapon_propertiestext;
+		}
+		onClose
+		{
+			hide kar98k_info;
+			hide g43_info;
+			hide mp40_info;
+
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			//rect			-107 0 554 480
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"gradient"
+			visible			1
+			decoration
+		}
+
+		#include "ui/bars.menu"
+		
+		#include "ui_mp/custom/teamicon_german.inc"
+		#include "ui_mp/custom/menu_wireframe.inc"
+		#include "ui_mp/custom/perks_officer.inc"
+		#include "ui_mp/custom/sidearm.inc"
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1 1 1 1
+			text			"@Officer Class"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+
+	//***************** MENU CHOICES ****************************
+		execKey "1" { play "mouse_click"; scriptMenuResponse "kar98k_mp"; }
+		execKey "2" { play "mouse_click"; scriptMenuResponse "g43_mp"; }
+		execKey "3" { play "mouse_click"; scriptMenuResponse "mp40_mp"; }
+
+		itemDef 
+		{
+			name			"button_kar98k"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Karbiner 98k"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98k"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "kar98k_mp";
+			}
+			onFocus
+			{
+				hide mp40_info;
+				hide g43_info;
+				play "mouse_over";
+				show kar98k_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_kar98k_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE1
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Karbiner 98k"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_kar98k"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide kar98k_info;
+				hide g43_info;
+				hide mp40_info;
+				hide weapon_propertiestext;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+			}
+		}	
+		
+		itemDef 
+		{
+			name			"button_g43"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Gewehr 43"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_g43"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "g43_mp";
+			}
+			onFocus
+			{
+				hide kar98k_info;
+				hide mp40_info;
+				play "mouse_over";
+				show g43_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_g43_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE2
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Gewehr 43"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_g43"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide kar98k_info;
+				hide g43_info;
+				hide mp40_info;
+				hide weapon_propertiestext;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+			}
+		}
+
+		itemDef 
+		{
+			name			"button_mp40"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_UNFOCUSED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. MP40"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_mp40"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "mp40_mp";
+			}
+			onFocus
+			{
+				hide kar98k_info;
+				hide g43_info;
+				play "mouse_over";
+				show mp40_info;
+				show weapon_propertiestext;
+			}
+		}
+		itemDef 
+		{
+			name			"button_mp40_disabled"
+			visible			1
+			rect			0 0 128 24
+			origin			ORIGIN_CHOICE3
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_BUTTON
+			text			"@3. MP40"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"ui_allow_mp40"
+			hideDvar		{ "1" }
+			decoration
+			mouseEnter
+			{
+				hide kar98k_info;
+				hide g43_info;
+				hide mp40_info;
+				hide weapon_propertiestext;
+				show disabled_info;
+			}
+			mouseExit
+			{
+				hide disabled_info;
+			}
+		}
+
+		//BACK BUTTON
+		itemDef 
+		{
+			#include "ui_mp/button_back.menu"
+
+			action
+			{
+				play "mouse_click";
+				close engineer_axis;
+				close assault_axis;
+				close medic_axis;
+				close officer_axis;
+				
+				open class_axis;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+
+		itemDef 
+		{
+			#include "ui_mp/button_mainmenu.menu"
+
+			action
+			{
+				play "mouse_click";
+				close ingame;
+				open main;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+// WEAPON IMAGES
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 -2 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_kar98"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 -2 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_g43"
+			decoration
+		}
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 -4 224 112
+			origin			ORIGIN_WEAPONIMAGE
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_mp40"
+			decoration
+		}
+
+		itemDef
+		{
+			name			"binoculars_info"
+			visible 		1
+			rect			0 0 60 60
+			origin			ORIGIN_BINOCULARS
+	 		style			WINDOW_STYLE_SHADER
+			background		"weapon_binoculars"
+			decoration
+		}
+
+	// WEAPON PROPERTIES
+		itemDef
+		{
+			name			"weapon_propertiestext"
+			visible 		0
+			origin			ORIGIN_WEAPONPROPERTIESTEXT
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPUI_ACCURACY_DAMAGE_MOBILITY"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_TEXT_SIZE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 96 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 96 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"g43_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 70 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 75 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"mp40_info"
+			visible 		0
+			rect			0 0 96 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONACCURACY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONDAMAGE
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 128 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 .125
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}
+		itemDef
+		{
+			name			"kar98k_info"
+			visible 		0
+			rect			0 0 80 10
+			origin			ORIGIN_WEAPONMOBILITY
+			backcolor		1 1 1 1
+	 		style			WINDOW_STYLE_FILLED
+			decoration
+		}		
+		
+		#include "ui_mp/custom/axis_officer_grenades.inc"
+	}
+}

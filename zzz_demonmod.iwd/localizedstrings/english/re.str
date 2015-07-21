@@ -1,0 +1,10 @@
+REFERENCE           	RE
+LANG_ENGLISH        	"Retrieval"
+
+REFERENCE           CAPPING_OBJECTIVE
+LANG_ENGLISH        "Capturing Objective"
+
+REFERENCE           OBJ_CAPTURED_ALL
+LANG_ENGLISH        "All objectives have been retrieved!"
+
+ENDMARKER

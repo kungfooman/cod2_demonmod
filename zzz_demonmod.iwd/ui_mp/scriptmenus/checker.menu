@@ -1,0 +1,179 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_TITLE		180 95
+#define TEXT_BOX_SIZE		550 5
+#define ORIGIN_TEXT_1		20 120
+#define ORIGIN_TEXT_2		30 160
+#define ORIGIN_TEXT_3		50 200
+#define ORIGIN_TEXT_4		140 240
+#define WIDESCREEN_OFFSET	30 0
+#define TEXT_SIZE			.40
+
+{
+	menuDef
+	{
+		name			"checker"
+		rect			0 0 640 480
+		focuscolor		GLOBAL_FOCUSED_COLOR
+		style			WINDOW_STYLE_EMPTY
+	//	blurWorld		5.0
+		onEsc 
+		{
+			scriptMenuResponse "accept";
+		}
+
+		// Gradient
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			100 50 400 300 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"black"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1.5
+			bordercolor		1.000 0.647 0.290 1
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"flags_americangerman"
+			style			WINDOW_STYLE_SHADER
+			rect			103 53 397 297 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"checker_americangerman"
+			forecolor		1 1 1 .5
+			visible			1
+			decoration
+			dvartest		"scr_class_american"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"flags_britishgerman"
+			style			WINDOW_STYLE_SHADER
+			rect			103 53 397 297 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"checker_britishgerman"
+			forecolor		1 1 1 .5
+			visible			1
+			decoration
+			dvartest		"scr_class_british"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"flags_russiangerman"
+			style			WINDOW_STYLE_SHADER
+			rect			103 53 397 297 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			background		"checker_russiangerman"
+			forecolor		1 1 1 .5
+			visible			1
+			decoration
+			dvartest		"scr_class_russian"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			visible			1
+			origin			ORIGIN_TITLE
+			forecolor		1.000 0.647 0.290 1
+			text			"@DOWNLOAD CHECKER"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			decoration
+		}
+
+		itemDef
+		{
+			name			"Checker Message"
+			visible			1
+			rect			ORIGIN_TEXT_1 TEXT_BOX_SIZE
+			origin			WIDESCREEN_OFFSET
+			autowrapped
+			Text			"This Menu Is Necessary To Check If You Have Downloaded the Mod."
+			textfont		UI_FONT_NORMAL
+			textscale		TEXT_SIZE
+			textstyle		6
+			textaligny		16
+			decoration
+		}
+
+		itemDef
+		{
+			name			"Checker Message"
+			visible			1
+			rect			ORIGIN_TEXT_2 TEXT_BOX_SIZE
+			origin			WIDESCREEN_OFFSET
+			autowrapped
+			Text			"Don't Worry, If You See This Menu Then You Must Have the Mod."
+			textfont		UI_FONT_NORMAL
+			textscale		TEXT_SIZE
+			textstyle		6
+			textaligny		16
+			decoration
+		}
+
+		itemDef
+		{
+			name			"Checker Message"
+			visible			1
+			rect			ORIGIN_TEXT_3 TEXT_BOX_SIZE
+			origin			WIDESCREEN_OFFSET
+			autowrapped
+			Text			"Just Click the Accept Button And You Can Start Playing."
+			textfont		UI_FONT_NORMAL
+			textscale		TEXT_SIZE
+			textstyle		6
+			textaligny		16
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"Checker Message"
+			visible			1
+			rect			ORIGIN_TEXT_4 TEXT_BOX_SIZE
+			origin			WIDESCREEN_OFFSET
+			autowrapped
+			Text			"Hurry, Before The Timer Runs Out!"
+			textfont		UI_FONT_NORMAL
+			textscale		TEXT_SIZE
+			textstyle		6
+			textaligny		16
+			decoration
+		}
+
+
+// CLICK TO ACCEPT
+		itemDef
+		{
+			visible 		1
+			rect			0 0 640 480
+			type 			ITEM_TYPE_BUTTON
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "accept";
+			}
+		}
+		
+		itemDef
+		{
+			visible			1
+			rect			0 0 128 24
+			origin			200 305 // 420 320
+			forecolor		1.000 0.647 0.290 1
+			text			"@ACCEPT"
+			textfont		UI_FONT_NORMAL
+			textscale		GLOBAL_HEADER_SIZE
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		128
+			textaligny		24
+			decoration
+		}
+	}
+}

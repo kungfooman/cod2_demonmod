@@ -1,0 +1,752 @@
+#include "ui/menudef.h"
+
+#define ORIGIN				40 145
+#define ORIGIN2				190 160
+
+#define ORIGIN_PERKINFO 	70 150
+#define ORIGIN_PERKICON 	345 150
+#define ORIGIN_BIG_TEXT		194 166
+#define ORIGIN_DESC_TEXT	194 190
+#define DESC_RECT			0 52 250 50
+
+{
+	menuDef
+	{
+		name			"popup_perk3"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+ 		style			WINDOW_STYLE_EMPTY
+		onEsc 
+		{
+			close popup_perk3;
+		}
+		onOpen 
+		{
+			show grenadepulldeath_icon;
+			show grenadepulldeath_big_text;
+			show grenadepulldeath_desc_text;
+		}
+		onClose
+		{
+			hide grenadepulldeath_big_text;
+			hide grenadepulldeath_text;
+			hide grenadepulldeath_icon;
+			hide grenadepulldeath_desc_text;
+
+			hide longersprint_big_text;
+			hide longersprint_text;
+			hide longersprint_icon;
+			hide longersprint_desc_text;
+				
+			hide explosivedamage_icon;
+			hide explosivedamage_text;
+			hide explosivedamage_big_text;
+			hide explosivedamage_desc_text;
+
+			hide hardline_icon;
+			hide hardline_text;
+			hide hardline_big_text;
+			hide hardline_desc_text;
+
+			hide scavenger_icon;
+			hide scavenger_text;
+			hide scavenger_big_text;
+			hide scavenger_desc_text;
+		}
+		
+		itemDef
+		{
+			name			"perk3_background"
+			visible			1
+			rect			0 0 410 170
+			origin			ORIGIN
+			style			WINDOW_STYLE_SHADER
+			background		"black"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1
+			bordercolor		1.000 0.647 0.290 1
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"perk3_background2"
+			visible			1
+			rect			0 0 240 80
+			origin			ORIGIN2
+			style			WINDOW_STYLE_SHADER
+			background		"menu_gradient"
+			forecolor		.7 .7 .7 .7
+			visible			1
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"grenadepulldeath"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Martyrdom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_martyrdom"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "grenadepulldeath";
+				close popup_perk3;
+			}
+			onFocus
+			{
+
+				hide longersprint_big_text;
+				hide longersprint_text;
+				hide longersprint_icon;
+				hide longersprint_desc_text;
+					
+				hide explosivedamage_icon;
+				hide explosivedamage_text;
+				hide explosivedamage_big_text;
+				hide explosivedamage_desc_text;
+
+				hide hardline_icon;
+				hide hardline_text;
+				hide hardline_big_text;
+				hide hardline_desc_text;
+
+				hide scavenger_icon;
+				hide scavenger_text;
+				hide scavenger_big_text;
+				hide scavenger_desc_text;
+				
+				play "mouse_over";
+				show grenadepulldeath_text;
+				show grenadepulldeath_big_text;
+				show grenadepulldeath_icon;
+				show grenadepulldeath_desc_text;
+				
+			}
+		}
+		itemDef 
+		{
+			name			"grenadepulldeath"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@1. Martyrdom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_martyrdom"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"longersprint"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Endurance"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_endurance"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "longersprint";
+				close popup_perk3;
+			}
+			onFocus
+			{
+				hide grenadepulldeath_big_text;
+				hide grenadepulldeath_text;
+				hide grenadepulldeath_icon;
+				hide grenadepulldeath_desc_text;
+					
+				hide explosivedamage_icon;
+				hide explosivedamage_text;
+				hide explosivedamage_big_text;
+				hide explosivedamage_desc_text;
+
+				hide hardline_icon;
+				hide hardline_text;
+				hide hardline_big_text;
+				hide hardline_desc_text;
+
+				hide scavenger_icon;
+				hide scavenger_text;
+				hide scavenger_big_text;
+				hide scavenger_desc_text;
+				
+				play "mouse_over";
+				show longersprint_text;
+				show longersprint_big_text;
+				show longersprint_icon;
+				show longersprint_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"longersprint"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@2. Endurance"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_endurance"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"explosivedamage"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Sonic Boom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_sonicboom"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "explosivedamage";
+				close popup_perk3;
+			}
+			onFocus
+			{
+				hide grenadepulldeath_big_text;
+				hide grenadepulldeath_text;
+				hide grenadepulldeath_icon;
+				hide grenadepulldeath_desc_text;
+
+				hide longersprint_big_text;
+				hide longersprint_text;
+				hide longersprint_icon;
+				hide longersprint_desc_text;
+
+				hide hardline_icon;
+				hide hardline_text;
+				hide hardline_big_text;
+				hide hardline_desc_text;
+
+				hide scavenger_icon;
+				hide scavenger_text;
+				hide scavenger_big_text;
+				hide scavenger_desc_text;
+
+				play "mouse_over";
+				show explosivedamage_text;
+				show explosivedamage_big_text;
+				show explosivedamage_icon;
+				show explosivedamage_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"explosivedamage"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@3. Sonic Boom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_sonicboom"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"hardline"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@4. Hardline"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_hardline"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "hardline";
+				close popup_perk3;
+			}
+			onFocus
+			{
+				hide grenadepulldeath_big_text;
+				hide grenadepulldeath_text;
+				hide grenadepulldeath_icon;
+				hide grenadepulldeath_desc_text;
+
+				hide longersprint_big_text;
+				hide longersprint_text;
+				hide longersprint_icon;
+				hide longersprint_desc_text;
+					
+				hide explosivedamage_icon;
+				hide explosivedamage_text;
+				hide explosivedamage_big_text;
+				hide explosivedamage_desc_text;
+
+				hide scavenger_icon;
+				hide scavenger_text;
+				hide scavenger_big_text;
+				hide scavenger_desc_text;
+
+				play "mouse_over";
+				show hardline_text;
+				show hardline_big_text;
+				show hardline_icon;
+				show hardline_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"hardline"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@4. Hardline"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_hardline"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"tactical_insertion"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@5. Scavenger"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_scavenger"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "scavenger";
+				close popup_perk3;
+			}
+			onFocus
+			{
+				hide grenadepulldeath_big_text;
+				hide grenadepulldeath_text;
+				hide grenadepulldeath_icon;
+				hide grenadepulldeath_desc_text;
+
+				hide longersprint_big_text;
+				hide longersprint_text;
+				hide longersprint_icon;
+				hide longersprint_desc_text;
+					
+				hide explosivedamage_icon;
+				hide explosivedamage_text;
+				hide explosivedamage_big_text;
+				hide explosivedamage_desc_text;
+
+				hide hardline_icon;
+				hide hardline_text;
+				hide hardline_big_text;
+				hide hardline_desc_text;
+
+				play "mouse_over";
+				show scavenger_text;
+				show scavenger_big_text;
+				show scavenger_icon;
+				show scavenger_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"scavenger"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@5. Tactical Insertion"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_scavenger"
+			hideDvar		{ "1" }
+		}
+		
+//////////////////// TEXT ///////////////////////////////////
+
+		itemDef 
+		{
+			name			"grenadepulldeath_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Martyrdom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"longersprint_text"
+			visible			0
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@2. Endurance"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"explosivedamage_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@3. Sonic Boom"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"hardline_text"
+			visible			0
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@4. Hardline"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"scavenger_text"
+			visible			0
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@5. Scavenger"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+	
+		
+////////////////// BIG TEXT ///////////////////////////////
+
+		itemDef 
+		{
+			name			"grenadepulldeath_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Martyrdom"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_martyrdom"
+			showDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"longersprint_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Endurance"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"explosivedamage_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Sonic Boom"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"hardline_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Hardline"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"scavenger_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Scavenger"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+
+///////////////// IMAGES ////////////////////////////////
+		
+		itemDef
+		{
+			name			"grenadepulldeath_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_grenadepulldeath"
+			decoration
+			dvartest		"scr_demon_allow_martyrdom"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name			"longersprint_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_longersprint"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"explosivedamage_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_explosivedamage"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"hardline_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_hardline"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"scavenger_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_scavenger"
+			decoration
+		}
+
+//////////////////////// DESCRIPTIONS ////////////////////////////////////
+
+		itemDef 
+		{
+			name			"grenadepulldeath_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_MARTYRDOM_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"longersprint_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_ENDURANCE_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"explosivedamage_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_SONIC_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"hardline_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_HARDLINE_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"scavenger_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_SCAVENGER_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+	}
+}

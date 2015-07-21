@@ -1,0 +1,12 @@
+name			"button_back"
+visible			1
+rect			0 0 128 24
+origin			48 417
+forecolor		GLOBAL_UNFOCUSED_COLOR
+type			ITEM_TYPE_BUTTON
+text			"Back"
+textfont		UI_FONT_NORMAL
+textscale		GLOBAL_HEADER_SIZE
+textalign		0
+textalignx		0
+textaligny		24

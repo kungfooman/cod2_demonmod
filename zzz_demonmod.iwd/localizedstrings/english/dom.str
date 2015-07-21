@@ -1,0 +1,29 @@
+
+REFERENCE           DOM
+LANG_ENGLISH        "Domination"
+
+REFERENCE           CAPTURING_FLAG
+LANG_ENGLISH        "Capturing Flag"
+
+REFERENCE           LOSING_FLAG
+LANG_ENGLISH        "Losing Flag!"
+
+REFERENCE           ENEMY_FLAG_CAPTURED_BY
+LANG_ENGLISH        "Enemy flag was captured by &&1!"
+
+REFERENCE           NEUTRAL_FLAG_CAPTURED_BY
+LANG_ENGLISH        "&&1 captured a flag!"
+
+REFERENCE           FRIENDLY_FLAG_CAPTURED_BY
+LANG_ENGLISH        "&&1 captured your flag!"
+
+REFERENCE           DOM_ENEMY_FLAG_CAPTURED
+LANG_ENGLISH        "Enemy flag captured"
+
+REFERENCE           DOM_YOUR_FLAG_WAS_CAPTURED
+LANG_ENGLISH        "Your flag was captured"
+
+REFERENCE           DOM_NEUTRAL_FLAG_CAPTURED
+LANG_ENGLISH        "Flag captured"
+
+ENDMARKER

@@ -1,0 +1,16 @@
+REFERENCE           	NUMBER_LEFT
+LANG_ENGLISH        	"You have &&1 firstaid kits left"
+
+REFERENCE           	ISUSING
+LANG_ENGLISH        	"&&1 is using a firstaid item on himself"
+
+REFERENCE           	FIXEDUP
+LANG_ENGLISH        	"&&1 is being healed by &&2"
+
+REFERENCE           	NUMBER_ONE
+LANG_ENGLISH        	"Only one more firstaidkit left, use it wisely!"
+
+REFERENCE           	NUMBER_ZERO
+LANG_ENGLISH        	"You have no more firstaid kits left, be careful!"
+
+ENDMARKER

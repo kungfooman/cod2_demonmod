@@ -1,0 +1,45 @@
+name,sequence,probability,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,loop,masterslave,loadspec,subtitle,compression,secondaryaliasname,volumefalloffcurve,startdelay,speakermap,reverb,lfe percentage
+
+#misc,,,,,,,,,,,,,,,,,,,,,,,
+air_raid,,,custom/Air_Raid.mp3,1,1,,,,1800,,auto,streamed,,,,,,,,,,,
+
+betty_jump,,,custom/betty_jump.wav,1,1,,,,1800,,local,streamed,,,,,,,,,,,
+
+#american,,,,,,,,,,,,,,,,,,,,,,,
+us_arty_ready,,,Voiceovers/US/Artillery/artillery_ar1_sc01_01_t3_R.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+us_arty_shot,1,,Voiceovers/US/Artillery/artillery_ar1_sc01_13_t3_R.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+us_arty_shot,2,,Voiceovers/US/Artillery/artillery_ar1_sc01_14_t4_R.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+
+#british,,,,,,,,,,,,,,,,,,,,,,,
+uk_arty_shot,1,,Voiceovers/UK/Artillery/artillery_ba1_13_t1.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+uk_arty_shot,2,,Voiceovers/UK/Artillery/artillery_ba1_14_t1.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+uk_arty_ready,,,Voiceovers/UK/Artillery/artillery_ba1_04_t1.wav,1,1,,,,,,auto,streamed,,,,,,,,,,,
+
+#russian,,,,,,,,,,,,
+ru_arty_shot,,,custom/ru_firering.mp3,1,1,,,,,,auto,streamed
+ru_arty_ready,,,custom/ru_arty_gtg.mp3,1,1,,,,,,auto,streamed
+
+#german,,,,,,,,,,,,
+ge_arty_ready,,,custom/ge_arty_gtg.mp3,1,1,,,,,,auto,streamed
+ge_arty_shot,,,custom/ge_fire_mission.mp3,1,1,,,,,,auto,streamed
+
+#Victory Music,,,,,,,,,,,,
+uk_victory,,,music/uk_victory.mp3,1,,,,,,,music,streamed
+ge_victory,,,music/ge_victory.mp3,1,,,,,,,music,streamed
+ru_victory,,,music/ru_victory.mp3,1,,,,,,,music,streamed
+us_victory,,,music/us_victory.mp3,1,,,,,,,music,streamed
+
+#Misc Music,,,,,,,,,,,,
+mp_promotion,1,,music/mp_promotion.mp3,1,1,,,,,,auto,streamed
+
+#choke & puke,,,,,,,,,,,,
+choke,1,,custom/choke01.mp3,1,1,,,,200,,auto,streamed
+choke,2,,custom/choke02.mp3,1,1,,,,200,,auto,streamed
+choke,3,,custom/choke03.mp3,1,1,,,,200,,auto,streamed
+choke,4,,custom/choke04.mp3,1,1,,,,200,,auto,streamed
+choke,5,,custom/choke05.mp3,1,1,,,,200,,auto,streamed
+choke,6,,custom/choke06.mp3,1,1,,,,200,,auto,streamed
+choke,7,,custom/choke07.mp3,1,1,,,,200,,auto,streamed
+choke,8,,custom/choke08.mp3,1,1,,,,200,,auto,streamed
+
+##END OF FILE,,,,,,,,,,,,

@@ -1,0 +1,10 @@
+REFERENCE           KOTH
+LANG_ENGLISH        "King of the Hill"
+
+REFERENCE           HQ_REVEALED
+LANG_ENGLISH        "HQ location revealed."
+
+REFERENCE           WAITING_FOR_HQ
+LANG_ENGLISH        "Waiting for HQ to be destroyed..."
+
+ENDMARKER

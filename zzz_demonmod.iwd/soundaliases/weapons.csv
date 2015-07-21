@@ -1,0 +1,75 @@
+name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,probability,loop,masterslave,loadspec,subtitle,compression,secondaryaliasname,volumefalloffcurve,startdelay,speakermap,reverb,lfe percentage
+
+#Smoke Grenade,,,,,,,,,,,,,,,,,,,,,,,
+insertiongrenade_explode,1,weapons/flare/flashbang_toss_b.mp3,1,1,explosion,0.8,1.2,15,450,auto,streamed,,,0.85,all_mp,,,,,,,,0.5
+
+#Smoke Grenade,,,,,,,,,,,,,,,,,,,,,,,
+insertiongrenade_start,1,weapons/flare/flashbang_start.mp3,1,1,explosion,0.8,1.2,15,450,auto,streamed,,,0.85,all_mp,,,,,,,,0.5
+
+#30cal,,,,,,,,,,,,,,,,,,,,,,,
+weap_m1919_fire_plr,,weapons/m1919/fire_m1919.wav,0.52,0.58,wpnplyr,0.93,1.05,35,800,local,,,,0.85,all_mp,,,,,,,,0.2
+
+weap_m1919_fire,,weapons/m1919/fire_m1919.wav,0.52,0.58,wpnai,0.93,1.05,35,800,weapon,,,,0.7,all_mp,,,,weapon2,,,,
+
+
+#DP28,,,,,,,,,,,,,,,,,,,,,,,
+weap_dp28_fire_plr,,weapons/dp28/wpnfire_dp28_plyr_blnc_ed3.wav,0.73,0.8,wpnplyr,0.93,1.07,500000,,local,,,,0.85,all_mp,,,,,,,,0.2
+
+weap_dp28_fire,,weapons/dp28/wpnfire_dp28_plyr_blnc_ed3.wav,0.52,0.58,wpnai,1.03,1.23,35,8400,weapon,,,,0.7,all_mp,,,,weapon2,,,,
+
+#MG42,,,,,,,,,,,,,,,,,,,,,,,
+weap_mg42_fire_plr,,weapons/portmg42/wpnfire_mg42_plyr_pnchy_ed3.wav,0.73,0.8,wpnplyr,0.93,1.07,500000,,local,,,,0.85,all_mp,,,,,,,,0.2
+
+weap_mg42_fire,,weapons/portmg42/wpnfire_mg42_plyr_pnchy_ed3.wav,0.52,0.58,wpnai,1.03,1.23,35,8400,weapon,,,,0.7,all_mp,,,,weapon2,,,,
+
+weap_sticky_chord,,weapons/sticky/sticky_cord.wav,0.76,0.83,wpnplyr,,,7,500,weapon,,,,,,,,,,,,,
+weap_sticky_throw,1,weapons/sticky/sticky_throw.wav,0.38,0.42,wpnai,0.95,1.05,35,350,weapon,,,,0.7,,,,,weapon2,,,,
+
+#PTRS-41,,,,,,,,,,,,,,,,,,,,,,,
+cweap_ptrs41_fire_plr,,weapons/ptrs41/ptrs41_fire.wav,0.9,0.9,wpnplyr,0.9,1.1,500000,,local,,,,0.85,,,,cweap_rifle_shell,,,,,200
+
+#Player Weapons Non-Player,,,,,,,,,,,,,,,,,,,,,,,
+cweap_ptrs41_fire,,weapons/ptrs41/ptrs41_fire.wav,0.7,0.8,wpnai,0.9,1.1,1,6000,weapon,,,,0.6,,,,cweap_rifle_shell,weapon2,,,,
+
+#Weapon Foley,,,,,,,,,,,,,,,,,,,,
+cweap_ptrs41_reload,,weapons/ptrs41/ptrs41_rld.wav,1,1,wpnplyr,1,1,1,600,weapon,,,,,,,,,,100
+cweap_ptrs41_pickup,,weapons/ptrs41/ptrs41_pu.wav,1,1,wpnplyr,1,1,1,600,weapon,,,,,,,,,,
+cweap_rifle_ammopickup,,weapons/cweap/cweap_ammopu_rifle.wav,1,1,wpnplyr,1,1,100,600,auto,,,,,,,,,,
+cweap_ptrs41_putaway,,weapons/ptrs41/ptrs41_forward.wav,1,1,wpnplyr,1,1,1,600,weapon,,,,,,,,,,
+cweap_ptrs41_raise,,null.wav,1,1,wpnplyr,1.5,1.5,1,600,weapon,,,,,,,,,,
+
+#Weapon Foley NPC,,,,,,,,,,,,,,,,,,,,
+cweap_ptrs41_reload_npc,,weapons/ptrs41/ptrs41_rld.wav,0.8,0.9,wpnai,1,1,1,600,auto,,,,,,,,,,100
+
+#Shelleject impact,,,,,,,,,,,,,,,,,,,,
+cweap_rifle_shell,1,weapons/cweap/cweap_shell_rifle.wav,0.4,0.6,wpnplyr,1,1,100,600,auto,,,,0.5,,,,,,
+cweap_rifle_shell,2,weapons/cweap/cweap_shell_rifle2.wav,0.4,0.6,wpnplyr,1,1,100,600,auto,,,,0.5,,,,,,
+cweap_rifle_shell,3,weapons/cweap/cweap_shell_rifle3.wav,0.4,0.6,wpnplyr,1,1,100,600,auto,,,,0.5,,,,,,
+
+#FG42 PLAYER,,,,,,,,,,,,,,,,,,,,,,,
+cweap_fg42_fire_plr,1,weapons/fg42/fg42sniper_01.wav,0.9,0.9,wpnplyr,0.9,1.1,500000,,local,,,,0.85,,,,fg42scoped_shell,,,,,200
+cweap_fg42_fire_plr,2,weapons/fg42/fg42sniper_02.wav,0.9,0.9,wpnplyr,0.9,1.1,500000,,local,,,,0.85,,,,fg42scoped_shell,,,,,200
+
+#FG42 Non-Player,,,,,,,,,,,,,,,,,,,,,,,
+cweap_fg42_fire,1,weapons/fg42/fg42sniper_01.wav,0.7,0.8,wpnai,0.9,1.1,1,6000,weapon,,,,0.6,,,,fg42scoped_shell,weapon2,,,,
+cweap_fg42_fire,2,weapons/fg42/fg42sniper_02.wav,0.7,0.8,wpnai,0.9,1.1,1,6000,weapon,,,,0.6,,,,fg42scoped_shell,weapon2,,,,
+
+cweap_fg42_reload,1,weapons/fg42/fg42sniper_reload.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,end_of_autoclip,,,,,
+cweap_fg42_reload,2,weapons/fg42/fg42sniper_reload2.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,end_of_autoclip,,,,,
+cweap_fg42_reload,3,weapons/fg42/fg42sniper_reload3.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,end_of_autoclip,,,,,
+cweap_fg42_reload_not_empty,1,weapons/fg42/fg42sniper_reload_not_empty.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,,,,,,
+cweap_fg42_reload_not_empty,2,weapons/fg42/fg42sniper_reload_not_empty2.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,,,,,,
+cweap_fg42_reload_not_empty,3,weapons/fg42/fg42sniper_reload_not_empty3.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,,,,,,
+cweap_fg42_pickup,,weapons/fg42/fg42sniper_pickup.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,,,,,,
+cweap_fg42_ammopickup,,weapons/fg42/fg42scopedammo.wav,1,1,wpnplyr,1,1,1,500,auto,,,,,,,,,,,,,
+cweap_fg42_putaway,,weapons/fg42/fg42sniper_forward.wav,1,1,wpnplyr,1,1,1,500,weapon,,,,,,,,weap_raise_layer
+cweap_fg42_raise,,null.wav,1,1,wpnplyr,1.5,1.5,1,500,weapon,,,,,,,,
+
+cweap_fg42_reload_npc,,weapons/fg42/fg42sniper_reload.wav,0.8,0.9,wpnai,1,1,1,200,auto,,,,,,,,end_of_autoclip
+
+#Shelleject impact,,,,,,,,,,,,,,,,,,
+cweap_fg42scoped_shell,1,weapons/fg42/fg42scoped_shell.wav,0.2,0.2,wpnplyr,1,1,10,200,auto,,,,0.5,,,,
+cweap_fg42scoped_shell,2,weapons/fg42/fg42scoped_shell2.wav,0.2,0.2,wpnplyr,1,1,10,200,auto,,,,0.5,,,,
+cweap_fg42scoped_shell,3,weapons/fg42/fg42scoped_shell3.wav,0.2,0.2,wpnplyr,1,1,10,200,auto,,,,0.5,,,,
+
+#END OF FILE,,,,,,,,,,,,,,,,,,

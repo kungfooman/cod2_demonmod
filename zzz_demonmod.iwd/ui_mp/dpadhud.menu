@@ -1,0 +1,354 @@
+#include "ui_mp/menudef.h"
+
+{ // DPAD HUD
+
+	// KEYBOARD MAP
+	menuDef
+	{
+		name 			"keyboardmap"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			450 425 640 40
+
+		itemDef
+		{
+			name 			"hud_keyboardmap"
+			rect 			0 5 50 50
+			forecolor 		1 1 1 .4
+			ownerdraw 		CG_PLAYER_COMPASS_BACK
+			background 		hud_keyboardmap
+			visible 		MENU_TRUE
+			decoration
+			dvartest  		"scr_demon_dynamic_perks"
+			showDvar 		 { "1" }
+		}
+
+		itemDef
+		{
+			name 			"hud_keyboardmap"
+			rect 			0 52 70 70
+			dvar			ui_keyboard_hint
+			forecolor 		1 1 1 .6
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			visible			MENU_TRUE
+			decoration
+			textscale 		.25
+			textalignx		14
+			dvartest  		"scr_demon_dynamic_perks"
+			showDvar 		 { "1" }
+		}
+		
+	}
+
+	//Binoculars
+	menuDef
+	{
+		name 			"binoculars"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			370 428 640 40
+
+		itemDef
+		{
+			name 			"binoculars"
+			rect 			5 5 34 34
+			forecolor		1 1 1 .4
+			background 		"weapon_binoculars"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_binoculars"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name 			"binoculars"
+			rect 			-1 50 70 70
+			dvar			ui_binoculars_hint
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			visible			MENU_TRUE
+			decoration
+			textalignx		14
+			dvartest		"cg_player_binoculars"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name 			"binoculars"
+			rect 			-1 50 70 70
+			text			"[ L ]"
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1.0 1.0 1.0 1.0
+			ownerdraw 		CG_PLAYER_WEAPON_MODE_ICON
+			visible			MENU_TRUE
+			decoration
+			textalignx		14
+			dvartest		"cg_player_binoculars"
+			showDvar		{ "1" }
+		}
+	}
+
+	//Tactical Insertion
+	menuDef
+	{
+		name 			"insertion"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			300 428 640 40
+
+		itemDef
+		{
+			name 			"insertion"
+			rect 			7 7 30 30
+			forecolor		1 1 1 .4
+			background 		"hud_insertion"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_insertion"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name 			"insertion"
+			rect 			-1 50 70 70
+			dvar			ui_tactical_hint
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			visible			MENU_TRUE
+			decoration
+			textalignx		14
+			dvartest		"cg_player_insertion"
+			showDvar		{ "1" }
+		}
+	}
+
+	//First Aid
+	menuDef
+	{
+		name 			"firstaid"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			300 428 640 40
+
+		itemDef
+		{
+			name 			"firstaid"
+			rect 			7 7 30 30
+			forecolor		1 1 1 .4
+			background 		"hud_firstaid"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_firstaid"
+			showDvar		{ "1" }
+		}
+	
+		itemDef
+		{
+			name 			"firstaid"
+			rect 			-3 50 70 70
+			dvar			ui_firstaid_value
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			visible			MENU_TRUE
+			decoration
+			textalignx		19
+			dvartest		"cg_player_firstaid"
+			showDvar		{ "1" }
+		}
+
+	}
+
+	// TRIPWIRES
+	menuDef
+	{
+		name 			"tripwires"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			230 428 640 40
+
+		itemDef
+		{
+			name 			"tripwire"
+			rect 			5 3 35 35
+			forecolor		1 1 1 .4
+			background 		"hud_tripwire_dpad"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_tripwire"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name 			"tripwire"
+			rect 			0 50 70 70
+			dvar			ui_tripwire_count
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			visible			MENU_TRUE
+			decoration
+			dvartest		"cg_player_tripwire"
+			showDvar		{ "1" }
+			textalignx		14
+		}
+	}
+
+	// LANDMINES
+	menuDef
+	{
+		name 			"landmines"
+		fullScreen 		MENU_FALSE
+		visible 		1
+		rect 			230 428 640 40
+
+		itemDef
+		{
+			name 			"landmine"
+			rect 			5 1 35 35
+			forecolor		1 1 1 .4
+			background 		"hud_landmine"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_landmine"
+			showDvar		{ "allies" }
+		}
+		
+		itemDef
+		{
+			name 			"landmine"
+			rect 			5 1 35 35
+			forecolor		1 1 1 .4
+			background 		"hud_tellermine"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_landmine"
+			showDvar		{ "axis" }
+		}
+
+		itemDef
+		{
+			name 			"landmine"
+			rect 			-3 50 70 70
+			dvar			ui_landmine_count
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			visible			MENU_TRUE
+			decoration
+			dvartest		"cg_player_landmine_count"
+			showDvar		{ "1" }
+			textalignx		19
+		}
+	}
+	
+	//==================== HARDPOINTS ===========================
+	
+	menuDef
+	{
+		name 			"hardpoints"
+		fullScreen 		MENU_FALSE
+		visible 		MENU_TRUE
+		rect 			150 428 640 40
+		
+		itemDef
+		{
+			name 			"artillery"
+			rect 			9 -2 39 39
+			forecolor		1 1 1 .4
+			background 		"hud_artillery"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_artillery"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name 			"artillery"
+			rect 			0 50 70 70
+			text			"[ 1 ]"
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			ownerdraw 		CG_PLAYER_WEAPON_MODE_ICON
+			visible			MENU_TRUE
+			decoration
+			textalignx		14
+			dvartest		"cg_player_artillery_count"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name 			"airstrike"
+			rect 			5 2 37 37
+			forecolor		1 1 1 .4
+			background 		"hud_airstrike"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_airstrike"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name 			"airstrike"
+			rect 			0 50 70 70
+			text			"[ 1 ]"
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			ownerdraw 		CG_PLAYER_WEAPON_MODE_ICON
+			visible			MENU_TRUE
+			decoration
+			dvartest		"cg_player_airstrike_count"
+			showDvar		{ "1" }
+			textalignx		14
+		}
+		
+		itemDef
+		{
+			name 			"Carepackage"
+			rect 			6 -2 39 39
+			forecolor		1 1 1 .4
+			background 		"hud_carepackage"
+			ownerdraw		CG_PLAYER_COMPASS_BACK
+			visible 		MENU_TRUE
+			decoration
+			dvartest		"cg_player_carepackage"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name 			"Carepackage"
+			rect 			0 50 70 70
+			text			"[ M ]"
+			textstyle 		ITEM_TEXTSTYLE_SHADOWED
+			textscale 		.25
+			forecolor 		1 1 1 .6
+			ownerdraw 		CG_PLAYER_WEAPON_MODE_ICON
+			visible			MENU_TRUE
+			decoration
+			dvartest		"cg_player_carepackage_count"
+			showDvar		{ "1" }
+			textalignx		14
+		}
+	}
+}

@@ -1,0 +1,13 @@
+REFERENCE           	KILL_CONFIRMED
+LANG_ENGLISH        	"Kill Confirmed"
+
+REFERENCE           	KILL_DENIED
+LANG_ENGLISH        	"^1Kill Denied"
+
+REFERENCE           	OWN_DOGTAGS_DENIED
+LANG_ENGLISH        	"^1Picked Up Your Own Dogtags"
+
+REFERENCE           	OBJECTIVE_HINT
+LANG_ENGLISH        	"Collect Dogtags For the Win"
+
+ENDMARKER

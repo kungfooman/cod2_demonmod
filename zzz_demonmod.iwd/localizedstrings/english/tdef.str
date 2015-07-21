@@ -1,0 +1,22 @@
+REFERENCE           	TDEF
+LANG_ENGLISH        	"Team Defender"
+
+REFERENCE           	STOLE_FLAG
+LANG_ENGLISH        	"&&1 Stole the Flag!"
+
+REFERENCE           	FLAG_RESET
+LANG_ENGLISH        	"The Flag Has Been Reset Because it is Unreachable."
+
+REFERENCE           	FLAG_RESET_PRT2
+LANG_ENGLISH        	"The Next Player to Get Killed Drops the Flag!"
+
+REFERENCE           	FLAG_DROPPED
+LANG_ENGLISH        	"The Flag has been Dropped!"
+
+REFERENCE           	OBJECTIVE_HINT
+LANG_ENGLISH        	"Steal the flag and Defend it to Win Points!"
+
+REFERENCE           	OBJECTIVE_HINT_SCORE
+LANG_ENGLISH        	"Steal the flag and Defend it! First Team to &&1 Wins the Game."
+
+ENDMARKER

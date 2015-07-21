@@ -1,0 +1,749 @@
+#include "ui/menudef.h"
+
+#define ORIGIN				40 145
+#define ORIGIN2				190 160
+
+#define ORIGIN_PERKINFO 	70 150
+#define ORIGIN_PERKICON 	345 150
+#define ORIGIN_BIG_TEXT		194 166
+#define ORIGIN_DESC_TEXT	194 190
+#define DESC_RECT			0 52 250 50
+
+{
+	menuDef
+	{
+		name			"popup_perk1"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+ 		style			WINDOW_STYLE_EMPTY
+		onEsc 
+		{
+			close popup_perk1;
+		}
+		onOpen 
+		{
+			show tripwire_icon;
+			show tripwire_big_text;
+			show tripwire_desc_text;
+		}
+		onClose
+		{
+			hide sticky_big_text;
+			hide sticky_text;
+			hide sticky_icon;
+			hide sticky_desc_text;
+
+			hide tabun_big_text;
+			hide tabun_text;
+			hide tabun_icon;
+			hide tabun_desc_text;
+
+			hide satchel_icon;
+			hide satchel_text;
+			hide satchel_big_text;
+			hide satchel_desc_text;
+
+			hide betty_icon;
+			hide betty_text;
+			hide betty_big_text;
+			hide betty_desc_text;
+
+			hide tripwire_icon;
+			hide tripwire_big_text;
+			hide tripwire_text;
+			hide tripwire_desc_text;
+		}
+		
+		itemDef
+		{
+			name			"perk1_background"
+			visible			1
+			rect			0 0 410 170
+			origin			ORIGIN
+			style			WINDOW_STYLE_SHADER
+			background		"black"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1
+			bordercolor		1.000 0.647 0.290 1
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"perk1_background2"
+			visible			1
+			rect			0 0 240 80
+			origin			ORIGIN2
+			style			WINDOW_STYLE_SHADER
+			background		"menu_gradient"
+			forecolor		.7 .7 .7 .7
+			visible			1
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"tripwire"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Tripwires  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_tripwire"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "tripwire";
+				close popup_perk1;
+			}
+			onFocus
+			{
+				hide sticky_big_text;
+				hide sticky_text;
+				hide sticky_icon;
+				hide sticky_desc_text;
+
+				hide tabun_big_text;
+				hide tabun_text;
+				hide tabun_icon;
+				hide tabun_desc_text;
+
+				hide satchel_icon;
+				hide satchel_text;
+				hide satchel_big_text;
+				hide satchel_desc_text;
+
+				hide betty_icon;
+				hide betty_text;
+				hide betty_big_text;
+				hide betty_desc_text;
+				
+				play "mouse_over";
+				show tripwire_text;
+				show tripwire_big_text;
+				show tripwire_icon;
+				show tripwire_desc_text;
+				
+			}
+		}
+		itemDef 
+		{
+			name			"tripwire"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@1. Tripwires  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_tripwire"
+			hideDvar		{ "1" }
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"betty"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Bouncing Betty  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_betty"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "betty";
+				close popup_perk1;
+			}
+			onFocus
+			{
+				hide sticky_big_text;
+				hide sticky_text;
+				hide sticky_icon;
+				hide sticky_desc_text;
+
+				hide tabun_big_text;
+				hide tabun_text;
+				hide tabun_icon;
+				hide tabun_desc_text;
+
+				hide satchel_icon;
+				hide satchel_text;
+				hide satchel_big_text;
+				hide satchel_desc_text;
+
+				hide tripwire_icon;
+				hide tripwire_big_text;
+				hide tripwire_text;
+				hide tripwire_desc_text;
+				
+				play "mouse_over";
+				show betty_text;
+				show betty_big_text;
+				show betty_icon;
+				show betty_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"betty"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@2. Bouncing Betty  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_betty"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"sticky"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Sticky Bombs  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_stickybomb"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "stickybomb";
+				close popup_perk1;
+			}
+			onFocus
+			{
+				hide tabun_big_text;
+				hide tabun_text;
+				hide tabun_icon;
+				hide tabun_desc_text;
+
+				hide satchel_icon;
+				hide satchel_text;
+				hide satchel_big_text;
+				hide satchel_desc_text;
+
+				hide betty_icon;
+				hide betty_text;
+				hide betty_big_text;
+				hide betty_desc_text;
+
+				hide tripwire_icon;
+				hide tripwire_big_text;
+				hide tripwire_text;
+				hide tripwire_desc_text;
+
+				play "mouse_over";
+				show sticky_text;
+				show sticky_big_text;
+				show sticky_icon;
+				show sticky_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"sticky"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@3. Sticky Bombs  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_stickybomb"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"satchel"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@4. Satchel Charges  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_satchel"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "satchel_charge";
+				close popup_perk1;
+			}
+			onFocus
+			{
+				hide sticky_big_text;
+				hide sticky_text;
+				hide sticky_icon;
+				hide sticky_desc_text;
+
+				hide tabun_big_text;
+				hide tabun_text;
+				hide tabun_icon;
+				hide tabun_desc_text;
+
+				hide betty_icon;
+				hide betty_text;
+				hide betty_big_text;
+				hide betty_desc_text;
+
+				hide tripwire_icon;
+				hide tripwire_big_text;
+				hide tripwire_text;
+				hide tripwire_desc_text;
+
+				play "mouse_over";
+				show satchel_text;
+				show satchel_big_text;
+				show satchel_icon;
+				show satchel_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"satchel"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@4. Satchel Charges  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_satchel"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"tabun"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@5. Tabun Gas  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_tabungas"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "tabungas";
+				close popup_perk1;
+			}
+			onFocus
+			{
+				hide sticky_big_text;
+				hide sticky_text;
+				hide sticky_icon;
+				hide sticky_desc_text;
+
+				hide satchel_icon;
+				hide satchel_text;
+				hide satchel_big_text;
+				hide satchel_desc_text;
+
+				hide betty_icon;
+				hide betty_text;
+				hide betty_big_text;
+				hide betty_desc_text;
+
+				hide tripwire_icon;
+				hide tripwire_big_text;
+				hide tripwire_text;
+				hide tripwire_desc_text;
+
+				play "mouse_over";
+				show tabun_text;
+				show tabun_big_text;
+				show tabun_icon;
+				show tabun_desc_text;
+			} 
+		}
+		itemDef 
+		{
+			name			"tabun"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@5. Tabun Gas  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_tabungas"
+			hideDvar		{ "1" }
+		}
+		
+//////////////////// TEXT ///////////////////////////////////
+
+		itemDef 
+		{
+			name			"tripwire_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Tripwires  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"betty_text"
+			visible			0
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@2. Bouncing Betty  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"sticky_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@3. Sticky Bombs  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"satchel_text"
+			visible			0
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@4. Satchel Charges  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"tabun_text"
+			visible			0
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@5. Tabun Gas  X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+		
+////////////////// BIG TEXT ///////////////////////////////
+
+		itemDef 
+		{
+			name			"tripwire_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Tripwires X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_tripwire"
+			showDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"betty_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Bouncing Betty X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"sticky_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Sticky Bombs X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"satchel_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Satchel Charges X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"tabun_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Tabun Gas Grenades X2"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+
+///////////////// IMAGES ////////////////////////////////
+		
+		itemDef
+		{
+			name			"tripwire_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_weapon_tripwire"
+			decoration
+			dvartest		"scr_demon_allow_tripwire"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name			"betty_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_weapon_betty"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"sticky_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_weapon_stickybomb"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"satchel_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_weapon_satchel_charge"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"tabun_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_weapon_tabungas"
+			decoration
+		}
+
+//////////////////////// DESCRIPTIONS ////////////////////////////////////
+
+		itemDef 
+		{
+			name			"tripwire_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_TRIPWIRE_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"betty_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_BETTY_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"sticky_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_STICKYBOMB_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"satchel_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_SATCHEL_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"tabun_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_TABUN_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+	}
+}

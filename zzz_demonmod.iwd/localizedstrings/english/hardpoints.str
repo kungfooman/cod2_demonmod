@@ -1,0 +1,55 @@
+REFERENCE 			SENTRYGUN_INUSE
+LANG_ENGLISH		"^2You Already Have A Sentry Turret Spawned"
+
+REFERENCE 			SENTRYGUN_HINT
+LANG_ENGLISH 		"Press [{+activate}] to Pickup Sentry Gun"
+
+REFERENCE           SENTRY_TIME
+LANG_ENGLISH        "Sentry Gun Time:  "
+
+REFERENCE           AIRSTRIKE_USE_HINT
+LANG_ENGLISH	    "^7Press [^3[{+activate}]^7] to target airstrike."
+
+REFERENCE           AIRSTRIKE_NOT_AVAILABLE
+LANG_ENGLISH        "AirStrike Not Available"
+
+REFERENCE           AIRSTRIKE_ONWAY
+LANG_ENGLISH        "Air Strike On Way!"
+
+REFERENCE           AIRSTRIKE_NOT_VALID
+LANG_ENGLISH        "Not A Valid Target - Pick Another"
+
+REFERENCE           AIRSTRIKE_READY
+LANG_ENGLISH        "Air Strike Ready - Switch Weapons to Use"
+
+REFERENCE           ARTILLERY_USE_HINT
+LANG_ENGLISH	    "^7Press [^3[{+activate}]^7] to fire artillery."
+
+REFERENCE           ARTILLERY_READY
+LANG_ENGLISH        "Artillery Strike Ready - Switch Weapons to Use"
+
+REFERENCE           ARTILLERY_NOT_AVAILABLE
+LANG_ENGLISH        "Artillery Strike Not Available"
+
+REFERENCE           ARTILLERY_ONWAY
+LANG_ENGLISH        "Artillery Strike On Way!"
+
+REFERENCE           ARTILLERY_NOT_VALID
+LANG_ENGLISH        "Not A Valid Target - Pick Another"
+
+REFERENCE           CAREPACKAGE_READY
+LANG_ENGLISH        "Carepackage Ready! Press M on Keyboard"
+
+REFERENCE           CAREPACKAGE_USE_HINT
+LANG_ENGLISH        "Press M on Keyboard"
+
+REFERENCE           NO_CAREPACK
+LANG_ENGLISH        "You Don't Have a Carepack at This Time"
+
+REFERENCE           CAREPACK_NOT_AVAILABLE
+LANG_ENGLISH        "Carepackage Not Available"
+
+REFERENCE           CAPPING_CAREPACKAGE
+LANG_ENGLISH        "Fetching Package Contents"
+
+ENDMARKER

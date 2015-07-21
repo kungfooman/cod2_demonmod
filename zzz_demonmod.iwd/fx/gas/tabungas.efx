@@ -1,0 +1,56 @@
+
+Particle
+{
+	flags				useAlpha
+
+	spawnFlags			axisFromSphere orgOnCylinder
+
+	life				1e+004
+	
+	count				10
+
+	origin				0 0 0 4 0 0
+	
+	rotation			-360 360
+
+	rotationDelta		4 -4
+	
+	velocity			7 -7 4 7 -7 -4
+
+	rgb
+	{
+		curve
+		[
+			1 1 .784313725 0
+		]
+
+		scale			0.9295 1.071
+	}
+
+	rgbRand
+	{
+		curve
+		[
+			1 1 .784313725 0
+		]
+	}
+
+	alpha
+	{
+		start 		.8 .9
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 7
+		end				95 125
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx_whisp_spiral
+	]
+}

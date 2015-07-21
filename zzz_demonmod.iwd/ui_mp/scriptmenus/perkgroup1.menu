@@ -1,0 +1,372 @@
+#include "ui/menudef.h"
+
+#define ORIGIN_QUICKMESSAGETAB			32 204
+#define ORIGIN_QUICKMESSAGEWINDOW		32 236
+#define ORIGIN_PERKINFO					52 246
+#define ORIGIN_ESCAPE					52 236
+
+{
+	menuDef
+	{
+		name			"perkgroup1"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor	0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "1"
+		}
+		onClose
+		{
+			setDvar cl_bypassMouseInput "0"
+		}
+
+// WINDOW BACKGROUND
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 230
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+	 		style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			decoration
+		}
+	
+// WINDOW LINES
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 0 2 225
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			219 0 2 225
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			5 0 214 2
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+		itemDef
+		{
+			name			"window_lines"
+			visible			1
+			rect			3 225 218 2
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// TITLE
+		itemDef
+		{
+			name			"title"
+			visible			1
+			rect			0 0 224 32
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			forecolor		1 1 1 1
+			backcolor		0 0 0 0.7975
+			type			ITEM_TYPE_TEXT
+			text			"@Perk Group 1"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		24
+			textalignx		80
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"title_quickmessage_gray"
+			visible			1
+			rect			3 3 218 29
+			origin			ORIGIN_QUICKMESSAGETAB
+			style			WINDOW_STYLE_FILLED
+			backcolor		1 1 1 .125
+			decoration
+		}
+
+// PERKS
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 13 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@1. Tripwires   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_1"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 13 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@1. Tripwires   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_1"
+			hideDvar		{ "1" }
+		}
+		execKey "1" { scriptMenuResponse "1"; close perkgroup1 }
+		
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 43 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@2. Bouncing Betty   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_2"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 43 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@2. Bouncing Betty   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_2"
+			hideDvar		{ "1" }
+		}
+		execKey "2" { scriptMenuResponse "2"; close perkgroup1 }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 73 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@3. Sticky Bombs   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_3"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 73 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@3. Sticky Bombs   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_3"
+			hideDvar		{ "1" }
+		}
+		execKey "3" { scriptMenuResponse "3"; close perkgroup1 }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 103 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@4. Satchel Charges  X2"
+			decoration
+			dvartest		"perk1_unlock_rank_4"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 103 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@4. Satchel Charges  X2"
+			decoration
+			dvartest		"perk1_unlock_rank_4"
+			hideDvar		{ "1" }
+		}
+		execKey "4" { scriptMenuResponse "4"; close perkgroup1 }
+
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 133 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@5. Tabun Gas   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_5"
+			showDvar		{ "1" }
+		}
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			16 133 0 0
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@5. Tabun Gas   X2"
+			decoration
+			dvartest		"perk1_unlock_rank_5"
+			hideDvar		{ "1" }
+		}
+		execKey "5" { scriptMenuResponse "5"; close perkgroup1 }		
+		
+
+// IMGES
+		itemDef
+		{
+			name			"perk_image"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			1
+			rect			145 5 23 23
+			origin			ORIGIN_PERKINFO
+			background		"specialty_weapon_tripwire"
+			decoration
+			dvartest		"perk1_unlock_rank_1"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"perk_image"
+			style			WINDOW_STYLE_SHADER
+			forecolor		0.9 0.9 0.9 1
+			visible			1
+			rect			145 35 23 23
+			origin			ORIGIN_PERKINFO
+			background		"specialty_weapon_betty"
+			decoration
+			dvartest		"perk1_unlock_rank_2"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"perk_image"
+			style			WINDOW_STYLE_SHADER
+			forecolor		0.9 0.9 0.9 1
+			visible			1
+			rect			145 65 23 23
+			origin			ORIGIN_PERKINFO
+			background		"specialty_weapon_stickybomb"
+			decoration
+			dvartest		"perk1_unlock_rank_3"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"perk_image"
+			style			WINDOW_STYLE_SHADER
+			forecolor		0.9 0.9 0.9 1
+			visible			1
+			rect			145 95 23 23
+			origin			ORIGIN_PERKINFO
+			background		"specialty_weapon_satchel_charge"
+			decoration
+			dvartest		"perk1_unlock_rank_4"
+			showDvar		{ "1" }
+		}
+
+		itemDef
+		{
+			name			"perk_image"
+			style			WINDOW_STYLE_SHADER
+			forecolor		0.9 0.9 0.9 1
+			visible			1
+			rect			145 125 23 23
+			origin			ORIGIN_PERKINFO
+			background		"specialty_weapon_tabungas"
+			decoration
+			dvartest		"perk1_unlock_rank_5"
+			showDvar		{ "1" }
+		}
+
+
+// ESCAPE
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			16 215 0 0
+			origin			ORIGIN_ESCAPE
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textaligny		8
+			text			"@QUICKMESSAGE_ESC_EXIT"
+			decoration
+		}
+	}
+}

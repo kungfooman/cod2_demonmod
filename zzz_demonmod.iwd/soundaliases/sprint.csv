@@ -1,0 +1,9 @@
+name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,probability,loop,masterslave,loadspec,subtitle,compression,secondaryaliasname,volumefalloffcurve,startdelay,speakermap,reverb,lfe percentage
+
+#SprintServer,,,,,,,,,,,,,,,,,,,,,,,
+sprint_breathing,1,misc/mrk_breathing_better10.wav,0.95,0.95,chatteral,,,120,700,voice,,,,"0.7	",,,,,,,,,
+sprint_breathing,2,misc/mrk_breathing_better11.wav,0.95,0.95,chatteral,,,120,700,voice,,,,"0.7	",,,,,,,,,
+sprint_breathing,3,misc/mrk_breathing_better12.wav,0.95,0.95,chatteral,,,120,700,voice,,,,"0.7	",,,,,,,,,
+
+plane_flyby_stuka,,vehicles/stuka/rh_stuka_flyover01.wav,1,1,na,,,15,30000,auto,streamed,,,,all_mp,,,,,,,,
+

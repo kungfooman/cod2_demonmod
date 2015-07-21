@@ -1,0 +1,752 @@
+#include "ui/menudef.h"
+
+#define ORIGIN				40 145
+#define ORIGIN2				190 160
+
+#define ORIGIN_PERKINFO 	70 150
+#define ORIGIN_PERKICON 	345 150
+#define ORIGIN_BIG_TEXT		194 166
+#define ORIGIN_DESC_TEXT	194 190
+#define DESC_RECT			0 52 250 50
+
+{
+	menuDef
+	{
+		name			"popup_perk2"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+ 		style			WINDOW_STYLE_EMPTY
+		onEsc 
+		{
+			close popup_perk2;
+		}
+		onOpen 
+		{
+			show bulletdamage_icon;
+			show bulletdamage_big_text;
+			show bulletdamage_desc_text;
+		}
+		onClose
+		{
+			hide bulletdamage_big_text;
+			hide bulletdamage_text;
+			hide bulletdamage_icon;
+			hide bulletdamage_desc_text;
+
+			hide detectexplosives_big_text;
+			hide detectexplosives_text;
+			hide detectexplosives_icon;
+			hide detectexplosives_desc_text;
+				
+			hide armorvest_icon;
+			hide armorvest_text;
+			hide armorvest_big_text;
+			hide armorvest_desc_text;
+
+			hide firstaid_icon;
+			hide firstaid_text;
+			hide firstaid_big_text;
+			hide firstaid_desc_text;
+
+			hide insertion_icon;
+			hide insertion_text;
+			hide insertion_big_text;
+			hide insertion_desc_text;
+		}
+		
+		itemDef
+		{
+			name			"perk2_background"
+			visible			1
+			rect			0 0 410 170
+			origin			ORIGIN
+			style			WINDOW_STYLE_SHADER
+			background		"black"
+			forecolor		1 1 1 1
+			border			1
+			bordersize		1
+			bordercolor		1.000 0.647 0.290 1
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"perk2_background2"
+			visible			1
+			rect			0 0 240 80
+			origin			ORIGIN2
+			style			WINDOW_STYLE_SHADER
+			background		"menu_gradient"
+			forecolor		.7 .7 .7 .7
+			visible			1
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"bulletdamage"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@1. Stopping Power"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_bulletdamage"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "bulletdamage";
+				close popup_perk2;
+			}
+			onFocus
+			{
+
+				hide detectexplosives_big_text;
+				hide detectexplosives_text;
+				hide detectexplosives_icon;
+				hide detectexplosives_desc_text;
+					
+				hide armorvest_icon;
+				hide armorvest_text;
+				hide armorvest_big_text;
+				hide armorvest_desc_text;
+
+				hide firstaid_icon;
+				hide firstaid_text;
+				hide firstaid_big_text;
+				hide firstaid_desc_text;
+
+				hide insertion_icon;
+				hide insertion_text;
+				hide insertion_big_text;
+				hide insertion_desc_text;
+				
+				play "mouse_over";
+				show bulletdamage_text;
+				show bulletdamage_big_text;
+				show bulletdamage_icon;
+				show bulletdamage_desc_text;
+				
+			}
+		}
+		itemDef 
+		{
+			name			"bulletdamage"
+			visible			1
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@1. Stopping Power"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_bulletdamage"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"detectexplosives"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@2. Bomb Squad"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_bombsquad"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "detectexplosives";
+				close popup_perk2;
+			}
+			onFocus
+			{
+				hide bulletdamage_big_text;
+				hide bulletdamage_text;
+				hide bulletdamage_icon;
+				hide bulletdamage_desc_text;
+					
+				hide armorvest_icon;
+				hide armorvest_text;
+				hide armorvest_big_text;
+				hide armorvest_desc_text;
+
+				hide firstaid_icon;
+				hide firstaid_text;
+				hide firstaid_big_text;
+				hide firstaid_desc_text;
+
+				hide insertion_icon;
+				hide insertion_text;
+				hide insertion_big_text;
+				hide insertion_desc_text;
+				
+				play "mouse_over";
+				show detectexplosives_text;
+				show detectexplosives_big_text;
+				show detectexplosives_icon;
+				show detectexplosives_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"detectexplosives"
+			visible			1
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@2. Bomb Squad"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_bombsquad"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"armorvest"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@3. Juggernaut"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest 		"scr_demon_allow_juggernaut"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "armorvest";
+				close popup_perk2;
+			}
+			onFocus
+			{
+				hide bulletdamage_big_text;
+				hide bulletdamage_text;
+				hide bulletdamage_icon;
+				hide bulletdamage_desc_text;
+
+				hide detectexplosives_big_text;
+				hide detectexplosives_text;
+				hide detectexplosives_icon;
+				hide detectexplosives_desc_text;
+
+				hide firstaid_icon;
+				hide firstaid_text;
+				hide firstaid_big_text;
+				hide firstaid_desc_text;
+
+				hide insertion_icon;
+				hide insertion_text;
+				hide insertion_big_text;
+				hide insertion_desc_text;
+
+				play "mouse_over";
+				show armorvest_text;
+				show armorvest_big_text;
+				show armorvest_icon;
+				show armorvest_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"armorvest"
+			visible			1
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@3. Juggernaut"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest 		"scr_demon_allow_juggernaut"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"firstaid"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@4. First Aid"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_firstaid"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "firstaid";
+				close popup_perk2;
+			}
+			onFocus
+			{
+				hide bulletdamage_big_text;
+				hide bulletdamage_text;
+				hide bulletdamage_icon;
+				hide bulletdamage_desc_text;
+
+				hide detectexplosives_big_text;
+				hide detectexplosives_text;
+				hide detectexplosives_icon;
+				hide detectexplosives_desc_text;
+					
+				hide armorvest_icon;
+				hide armorvest_text;
+				hide armorvest_big_text;
+				hide armorvest_desc_text;
+
+				hide insertion_icon;
+				hide insertion_text;
+				hide insertion_big_text;
+				hide insertion_desc_text;
+
+				play "mouse_over";
+				show firstaid_text;
+				show firstaid_big_text;
+				show firstaid_icon;
+				show firstaid_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"firstaid"
+			visible			1
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@4. First Aid"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_firstaid"
+			hideDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"insertion"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"@5. Tactical Insertion"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			dvartest		"scr_demon_allow_insertion"
+			showDvar		{ "1" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "tactical_insertion";
+				close popup_perk2;
+			}
+			onFocus
+			{
+				hide bulletdamage_big_text;
+				hide bulletdamage_text;
+				hide bulletdamage_icon;
+				hide bulletdamage_desc_text;
+
+				hide detectexplosives_big_text;
+				hide detectexplosives_text;
+				hide detectexplosives_icon;
+				hide detectexplosives_desc_text;
+					
+				hide armorvest_icon;
+				hide armorvest_text;
+				hide armorvest_big_text;
+				hide armorvest_desc_text;
+
+				hide firstaid_icon;
+				hide firstaid_text;
+				hide firstaid_big_text;
+				hide firstaid_desc_text;
+
+				play "mouse_over";
+				show insertion_text;
+				show insertion_big_text;
+				show insertion_icon;
+				show insertion_desc_text;
+				
+			} 
+		}
+		itemDef 
+		{
+			name			"insertion"
+			visible			1
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		GLOBAL_DISABLED_COLOR
+			type			ITEM_TYPE_TEXT
+			text			"@5. Tactical Insertion"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_insertion"
+			hideDvar		{ "1" }
+		}
+		
+//////////////////// TEXT ///////////////////////////////////
+
+		itemDef 
+		{
+			name			"bulletdamage_text"
+			visible			0
+			rect			0 0 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@1. Stopping Power"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"detectexplosives_text"
+			visible			0
+			rect			0 26 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@2. Bomb Squad"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"armorvest_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@3. Juggernaut"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"firstaid_text"
+			visible			0
+			rect			0 78 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@4. First Aid"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"insertion_text"
+			visible			0
+			rect			0 104 100 24
+			origin			ORIGIN_PERKINFO
+			forecolor		1.000 0.773 0.541 1
+			type			ITEM_TYPE_TEXT
+			text			"@5. Tactical Insertion"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+	
+		
+////////////////// BIG TEXT ///////////////////////////////
+
+		itemDef 
+		{
+			name			"bulletdamage_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Stopping Power"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+			dvartest		"scr_demon_allow_bulletdamage"
+			showDvar		{ "1" }
+		}
+
+		itemDef 
+		{
+			name			"detectexplosives_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Bomb Squad"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"armorvest_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Juggernaut"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"firstaid_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@First Aid"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"insertion_big_text"
+			visible			0
+			rect			0 52 100 24
+			origin			ORIGIN_BIG_TEXT
+			forecolor		1.000 0.647 0.290 1
+			type			ITEM_TYPE_TEXT
+			text			"@Tactical Insertion"
+			textfont		UI_FONT_NORMAL
+			textscale		.28
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		20
+			decoration
+		}
+
+
+///////////////// IMAGES ////////////////////////////////
+		
+		itemDef
+		{
+			name			"bulletdamage_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_bulletdamage"
+			decoration
+			dvartest		"scr_demon_allow_bulletdamage"
+			showDvar		{ "1" }
+		}
+		
+		itemDef
+		{
+			name			"detectexplosives_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_detectexplosives"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"armorvest_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_armorvest"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"firstaid_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_firstaid"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			"insertion_icon"
+			style			WINDOW_STYLE_SHADER
+			forecolor		1 1 1 1
+			visible			0
+			rect			0 0 70 70
+			origin			ORIGIN_PERKICON
+			background		"specialty_tactical_insertion"
+			decoration
+		}
+
+//////////////////////// DESCRIPTIONS ////////////////////////////////////
+
+		itemDef 
+		{
+			name			"bulletdamage_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_BULLETDAMAGE_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"detectexplosives_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_BOMBSQUAD_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"armorvest_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_ARMORVEST_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"firstaid_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_FIRSTAID_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"insertion_desc_text"
+			visible			0
+			rect			DESC_RECT
+			origin			ORIGIN_DESC_TEXT
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			autowrapped
+			text			"@PERKS_INSERTION_DESC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textaligny		18
+			decoration
+		}
+	}
+}
